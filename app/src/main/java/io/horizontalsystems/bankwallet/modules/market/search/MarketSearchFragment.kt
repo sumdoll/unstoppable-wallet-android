@@ -114,10 +114,10 @@ fun MarketSearchScreen(
                                                 )
                                             }
                                             is MarketSearchModule.DiscoveryItem.Category -> {
-                                                navController.slideFromBottom(
-                                                    R.id.marketCategoryFragment,
-                                                    bundleOf(MarketCategoryFragment.categoryKey to viewItemType.coinCategory)
-                                                )
+//                                                navController.slideFromBottom(
+//                                                    R.id.marketCategoryFragment,
+//                                                    bundleOf(MarketCategoryFragment.categoryKey to viewItemType.coinCategory)
+//                                                )
                                             }
                                         }
                                     }

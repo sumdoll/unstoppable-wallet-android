@@ -163,9 +163,6 @@ class MarketWidget : GlanceAppWidget() {
         MarketWidgetType.TopGainers -> {
             "unstoppable://coin-page?uid=${item.uid}".toUri()
         }
-        MarketWidgetType.TopNfts -> {
-            "unstoppable://nft-collection?uid=${item.uid}&blockchainTypeUid=${item.blockchainTypeUid}".toUri()
-        }
         MarketWidgetType.TopPlatforms -> {
             "unstoppable://top-platforms?uid=${item.uid}&title=${item.title}".toUri()
         }

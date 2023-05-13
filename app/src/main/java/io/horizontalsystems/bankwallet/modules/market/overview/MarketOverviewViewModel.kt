@@ -17,18 +17,14 @@ import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewMod
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.BoardHeader
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.MarketMetrics
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.MarketMetricsPoint
-import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.TopNftCollectionsBoard
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.TopPlatformsBoard
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.TopSectorsBoard
 import io.horizontalsystems.bankwallet.modules.market.overview.TopSectorsRepository.Companion.getCategoryMarketData
 import io.horizontalsystems.bankwallet.modules.market.search.MarketSearchModule.DiscoveryItem.Category
-import io.horizontalsystems.bankwallet.modules.market.topnftcollections.TopNftCollectionsViewItemFactory
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformItem
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformViewItem
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsRepository
 import io.horizontalsystems.bankwallet.modules.metricchart.MetricsType
-import io.horizontalsystems.bankwallet.modules.nft.NftCollectionItem
-import io.horizontalsystems.bankwallet.modules.nft.nftCollectionItem
 import io.horizontalsystems.bankwallet.ui.compose.Select
 import io.horizontalsystems.bankwallet.ui.extensions.MetricData
 import io.horizontalsystems.chartview.ChartData
@@ -42,7 +38,6 @@ import java.math.BigDecimal
 
 class MarketOverviewViewModel(
     private val service: MarketOverviewService,
-    private val topNftCollectionsViewItemFactory: TopNftCollectionsViewItemFactory,
     private val currencyManager: CurrencyManager
 ) : ViewModel() {
 
@@ -132,7 +127,6 @@ class MarketOverviewViewModel(
             TimeDuration.SevenDay -> HsTimePeriod.Week1
             TimeDuration.ThirtyDay -> HsTimePeriod.Month1
         }
-        val nftCollectionItems = marketOverview.nftCollections.getOrElse(timePeriod) { listOf() }.map { it.nftCollectionItem }
 
         val topGainersBoard = getBoard(ListType.TopGainers, topMovers)
         val topLosersBoard = getBoard(ListType.TopLosers, topMovers)
@@ -140,7 +134,6 @@ class MarketOverviewViewModel(
         return MarketOverviewModule.ViewItem(
             getMarketMetrics(marketOverview.globalMarketPoints, baseCurrency),
             listOf(topGainersBoard, topLosersBoard),
-            topNftCollectionsBoard(nftCollectionItems),
             topSectorsBoard(coinCategoryItems),
             topPlatformsBoard(topPlatformItems)
         )
@@ -151,16 +144,6 @@ class MarketOverviewViewModel(
             title = R.string.Market_Overview_TopSectors,
             iconRes = R.drawable.ic_categories_20,
             items = items
-        )
-
-    private fun topNftCollectionsBoard(items: List<NftCollectionItem>) =
-        TopNftCollectionsBoard(
-            title = R.string.Nft_TopCollections,
-            iconRes = R.drawable.ic_top_nft_collections_20,
-            timeDurationSelect = Select(topNftsTimeDuration, service.timeDurationOptions),
-            collections = items.mapIndexed { index, collection ->
-                topNftCollectionsViewItemFactory.viewItem(collection, topNftsTimeDuration, index + 1)
-            }
         )
 
     private fun topPlatformsBoard(items: List<TopPlatformItem>) =

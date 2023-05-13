@@ -25,9 +25,7 @@ import io.horizontalsystems.bankwallet.modules.market.category.MarketCategoryFra
 import io.horizontalsystems.bankwallet.modules.market.overview.ui.*
 import io.horizontalsystems.bankwallet.modules.market.platform.MarketPlatformFragment
 import io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopCoinsFragment
-import io.horizontalsystems.bankwallet.modules.market.topnftcollections.TopNftCollectionsFragment
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsFragment
-import io.horizontalsystems.bankwallet.modules.nft.collection.NftCollectionFragment
 import io.horizontalsystems.bankwallet.ui.compose.HSSwipeRefresh
 import io.horizontalsystems.bankwallet.ui.compose.components.ListErrorView
 
@@ -88,35 +86,18 @@ fun MarketOverviewScreen(
                                 }
                             )
 
-                            TopSectorsBoardView(
-                                board = viewItem.topSectorsBoard,
-                                onClickSeeAll = {
-                                    navController.slideFromRight(R.id.marketSearchFragment)
-                                },
-                                onItemClick = { coinCategory ->
-                                    navController.slideFromBottom(
-                                        R.id.marketCategoryFragment,
-                                        bundleOf(MarketCategoryFragment.categoryKey to coinCategory)
-                                    )
-                                }
-                            )
-
-                            TopNftCollectionsBoardView(
-                                viewItem.topNftCollectionsBoard,
-                                onSelectTimeDuration = { timeDuration ->
-                                    viewModel.onSelectTopNftsTimeDuration(timeDuration)
-                                },
-                                onClickCollection = { blockchainType, collectionUid ->
-                                    val args = NftCollectionFragment.prepareParams(collectionUid, blockchainType)
-                                    navController.slideFromBottom(R.id.nftCollectionFragment, args)
-                                },
-                                onClickSeeAll = {
-                                    val (sortingField, timeDuration) = viewModel.topNftCollectionsParams
-                                    val args = TopNftCollectionsFragment.prepareParams(sortingField, timeDuration)
-
-                                    navController.slideFromBottom(R.id.marketTopNftCollectionsFragment, args)
-                                }
-                            )
+//                            TopSectorsBoardView(
+//                                board = viewItem.topSectorsBoard,
+//                                onClickSeeAll = {
+//                                    navController.slideFromRight(R.id.marketSearchFragment)
+//                                },
+//                                onItemClick = { coinCategory ->
+//                                    navController.slideFromBottom(
+//                                        R.id.marketCategoryFragment,
+//                                        bundleOf(MarketCategoryFragment.categoryKey to coinCategory)
+//                                    )
+//                                }
+//                            )
 
                             TopPlatformsBoardView(
                                 viewItem.topPlatformsBoard,

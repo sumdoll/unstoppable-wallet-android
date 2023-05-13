@@ -273,18 +273,9 @@ class TransactionInfoViewItemFactory(
         val amount: TransactionInfoViewItem
         val rate: TransactionInfoViewItem?
 
-        when (value) {
-            is TransactionValue.NftValue -> {
-                subtitle = getFullName(value, nftMetadata[value.nftUid])
-                amount = getNftAmount(value, true, nftMetadata[value.nftUid])
-                rate = null
-            }
-            else -> {
-                subtitle = getFullName(value)
-                amount = getAmount(coinPrice, value, true)
-                rate = getHistoricalRate(coinPrice, value)
-            }
-        }
+        subtitle = getFullName(value)
+        amount = getAmount(coinPrice, value, true)
+        rate = getHistoricalRate(coinPrice, value)
 
         val items: MutableList<TransactionInfoViewItem> = mutableListOf(
             Transaction(title, subtitle, R.drawable.ic_arrow_down_left_12),
@@ -338,18 +329,9 @@ class TransactionInfoViewItemFactory(
         val amount: TransactionInfoViewItem
         val rate: TransactionInfoViewItem?
 
-        when (value) {
-            is TransactionValue.NftValue -> {
-                subtitle = getFullName(value, nftMetadata[value.nftUid])
-                amount = getNftAmount(value, if (sentToSelf) null else false, nftMetadata[value.nftUid])
-                rate = null
-            }
-            else -> {
-                subtitle = getFullName(value)
-                amount = getAmount(coinPrice, value, if (sentToSelf) null else false)
-                rate = getHistoricalRate(coinPrice, value)
-            }
-        }
+        subtitle = getFullName(value)
+        amount = getAmount(coinPrice, value, if (sentToSelf) null else false)
+        rate = getHistoricalRate(coinPrice, value)
 
         val items: MutableList<TransactionInfoViewItem> = mutableListOf(
             Transaction(title, subtitle, if (burn) R.drawable.icon_24_flame else R.drawable.ic_arrow_up_right_12),
@@ -654,31 +636,6 @@ class TransactionInfoViewItemFactory(
             null
         }
         return Amount(coinValueColored, fiatValueColored, value.coinIconUrl, value.coinIconPlaceholder, coinUid)
-    }
-
-    private fun getNftAmount(
-        value: TransactionValue.NftValue,
-        incoming: Boolean?,
-        nftMetadata: NftAssetBriefMetadata?
-    ): TransactionInfoViewItem {
-        val valueFormatted = value.decimalValue.let { decimalValue ->
-            val sign = when {
-                incoming == null -> ""
-                decimalValue < BigDecimal.ZERO -> "-"
-                decimalValue > BigDecimal.ZERO -> "+"
-                else -> ""
-            }
-            val valueWithCoinCode = numberFormatter.formatCoinFull(decimalValue.abs(), value.coinCode, 8)
-            "$sign$valueWithCoinCode"
-        }
-
-        return NftAmount(
-            ColoredValue(valueFormatted, getAmountColor(incoming)),
-            nftMetadata?.previewImageUrl,
-            R.drawable.icon_24_nft_placeholder,
-            value.nftUid,
-            nftMetadata?.providerCollectionUid
-        )
     }
 
     private fun getHistoricalRate(

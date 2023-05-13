@@ -29,7 +29,6 @@ import io.horizontalsystems.bankwallet.modules.contacts.ContactsModule
 import io.horizontalsystems.bankwallet.modules.contacts.Mode
 import io.horizontalsystems.bankwallet.modules.info.TransactionDoubleSpendInfoFragment
 import io.horizontalsystems.bankwallet.modules.info.TransactionLockTimeInfoFragment
-import io.horizontalsystems.bankwallet.modules.nft.asset.NftAssetModule
 import io.horizontalsystems.bankwallet.modules.transactionInfo.ColorName
 import io.horizontalsystems.bankwallet.modules.transactionInfo.ColoredValue
 import io.horizontalsystems.bankwallet.modules.transactionInfo.TransactionInfoViewItem
@@ -80,23 +79,10 @@ fun TransactionNftAmountCell(
     amount: ColoredValue,
     iconUrl: String?,
     iconPlaceholder: Int?,
-    nftUid: NftUid,
     providerCollectionUid: String?,
     navController: NavController
 ) {
     var modifier = Modifier.padding(horizontal = 16.dp)
-
-    if (nftUid.blockchainType !is BlockchainType.Solana) {
-        modifier = modifier.clickable {
-            navController.slideFromBottom(
-                    R.id.nftAssetFragment,
-                    NftAssetModule.prepareParams(
-                            providerCollectionUid,
-                            nftUid
-                    )
-            )
-        }
-    }
 
     RowUniversal(
         modifier = modifier,

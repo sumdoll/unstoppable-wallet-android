@@ -66,15 +66,15 @@ fun BalanceForAccount(navController: NavController, accountViewItem: AccountView
                     )
                 }
             },
-            actions = {
-                AppBarMenuButton(
-                    icon = R.drawable.ic_nft_24,
-                    onClick = {
-                        navController.slideFromRight(R.id.nftsFragment)
-                    },
-                    description = stringResource(R.string.Nfts_Title)
-                )
-            },
+//            actions = {
+//                AppBarMenuButton(
+//                    icon = R.drawable.ic_nft_24,
+//                    onClick = {
+//                        navController.slideFromRight(R.id.nftsFragment)
+//                    },
+//                    description = stringResource(R.string.Nfts_Title)
+//                )
+//            },
             backgroundColor = ComposeAppTheme.colors.tyler,
             elevation = 0.dp
         )

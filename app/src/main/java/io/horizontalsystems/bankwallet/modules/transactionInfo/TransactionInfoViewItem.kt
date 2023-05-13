@@ -13,8 +13,6 @@ sealed class TransactionInfoViewItem {
 
     class Amount(val coinValue: ColoredValue, val fiatValue: ColoredValue, val coinIconUrl: String?, val coinIconPlaceholder: Int?, val coinUid: String?) : TransactionInfoViewItem()
 
-    class NftAmount(val nftValue: ColoredValue, val iconUrl: String?, val iconPlaceholder: Int?, val nftUid: NftUid, val providerCollectionUid: String?) : TransactionInfoViewItem()
-
     class Value(val title: String, val value: String) : TransactionInfoViewItem()
 
     class Address(val title: String, val value: String, val showAdd: Boolean, val blockchainType: BlockchainType) : TransactionInfoViewItem()

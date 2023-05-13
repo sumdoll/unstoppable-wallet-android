@@ -34,8 +34,6 @@ import io.horizontalsystems.bankwallet.modules.keystore.KeyStoreActivity
 import io.horizontalsystems.bankwallet.modules.launcher.LauncherActivity
 import io.horizontalsystems.bankwallet.modules.lockscreen.LockScreenActivity
 import io.horizontalsystems.bankwallet.modules.market.favorites.MarketFavoritesMenuService
-import io.horizontalsystems.bankwallet.modules.market.topnftcollections.TopNftCollectionsRepository
-import io.horizontalsystems.bankwallet.modules.market.topnftcollections.TopNftCollectionsViewItemFactory
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsRepository
 import io.horizontalsystems.bankwallet.modules.pin.PinComponent
 import io.horizontalsystems.bankwallet.modules.profeatures.ProFeaturesAuthorizationManager
@@ -297,8 +295,6 @@ class App : CoreApp(), WorkConfiguration.Provider, ImageLoaderFactory {
             marketKit,
             marketFavoritesManager,
             MarketFavoritesMenuService(localStorage, marketWidgetManager),
-            TopNftCollectionsRepository(marketKit),
-            TopNftCollectionsViewItemFactory(numberFormatter),
             TopPlatformsRepository(marketKit, currencyManager),
             currencyManager
         )
