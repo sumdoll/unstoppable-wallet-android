@@ -252,6 +252,10 @@ dependencies {
     implementation 'com.github.horizontalsystems:solana-kit-android:97dcdba'
     // Zcash SDK
     implementation "cash.z.ecc.android:zcash-android-sdk:1.14.0-beta01"
+    // https://mvnrepository.com/artifact/io.grpc/grpc-android
+//    implementation("io.grpc:grpc-android:1.54.0")
+//// https://mvnrepository.com/artifact/cash.z.ecc.android/lightwallet-client
+//    implementation("cash.z.ecc.android:lightwallet-client:1.15.0-beta01")
 
     // WalletConnect
     implementation 'com.github.horizontalsystems:wallet-connect-kotlin:b9a50b8'
@@ -269,6 +273,8 @@ dependencies {
 
     // in case native file tor.so not loading, do full gradle clean and build.
     implementation 'com.github.horizontalsystems:tor-kit-android:13750c4'
+    // https://mvnrepository.com/artifact/info.guardianproject/tor-android
+//    implementation("info.guardianproject:tor-android:0.4.7.8")
     implementation 'com.twitter.twittertext:twitter-text:3.1.0'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'

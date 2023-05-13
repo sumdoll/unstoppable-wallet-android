@@ -1,5 +1,6 @@
 package io.horizontalsystems.bankwallet.entities.nft
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -19,6 +20,7 @@ import io.horizontalsystems.marketkit.models.BlockchainType
 )
 data class NftCollectionRecord(
     val blockchainType: BlockchainType,
+    @ColumnInfo(name = "accountId", index = true)
     val accountId: String,
     val uid: String,
     val name: String,
