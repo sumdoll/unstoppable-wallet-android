@@ -314,18 +314,18 @@ private fun ButtonsRow(viewItem: BalanceViewItem, navController: NavController, 
                 )
             }
         }
-        Spacer(modifier = Modifier.width(8.dp))
-        ButtonPrimaryCircle(
-            icon = R.drawable.ic_chart_24,
-            contentDescription = stringResource(R.string.Coin_Info),
-            enabled = !viewItem.wallet.token.isCustom,
-            onClick = {
-                val coinUid = viewItem.wallet.coin.uid
-                val arguments = CoinFragment.prepareParams(coinUid)
-
-                navController.slideFromRight(R.id.coinFragment, arguments)
-            },
-        )
+//        Spacer(modifier = Modifier.width(8.dp))
+//        ButtonPrimaryCircle(
+//            icon = R.drawable.ic_chart_24,
+//            contentDescription = stringResource(R.string.Coin_Info),
+//            enabled = !viewItem.wallet.token.isCustom,
+//            onClick = {
+//                val coinUid = viewItem.wallet.coin.uid
+//                val arguments = CoinFragment.prepareParams(coinUid)
+//
+//                navController.slideFromRight(R.id.coinFragment, arguments)
+//            },
+//        )
     }
 }
 

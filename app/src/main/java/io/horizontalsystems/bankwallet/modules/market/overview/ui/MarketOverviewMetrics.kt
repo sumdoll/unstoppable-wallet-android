@@ -117,12 +117,12 @@ private fun RowScope.ChartView(metricsData: MetricData, navController: NavContro
 }
 
 private fun openMetricsPage(metricsType: MetricsType, navController: NavController) {
-    if (metricsType == MetricsType.TvlInDefi) {
-        navController.slideFromBottom(R.id.tvlFragment)
-    } else {
+//    if (metricsType == MetricsType.TvlInDefi) {
+//        navController.slideFromBottom(R.id.tvlFragment)
+//    } else {
         navController.slideFromBottom(
             R.id.metricsPageFragment,
             MetricsPageFragment.prepareParams(metricsType)
         )
-    }
+//    }
 }

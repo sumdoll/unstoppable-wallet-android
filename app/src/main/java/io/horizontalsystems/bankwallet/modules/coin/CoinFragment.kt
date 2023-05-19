@@ -23,15 +23,11 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.BaseFragment
-import io.horizontalsystems.bankwallet.modules.coin.analytics.CoinAnalyticsScreen
-import io.horizontalsystems.bankwallet.modules.coin.coinmarkets.CoinMarketsScreen
 import io.horizontalsystems.bankwallet.modules.coin.overview.ui.CoinOverviewScreen
-import io.horizontalsystems.bankwallet.modules.coin.tweets.CoinTweetsScreen
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.TranslatableString
 import io.horizontalsystems.bankwallet.ui.compose.components.*
 import io.horizontalsystems.core.helpers.HudHelper
-import kotlinx.coroutines.launch
 
 class CoinFragment : BaseFragment() {
 
@@ -139,43 +135,15 @@ fun CoinTabs(
             }
         )
 
-        val tabs = viewModel.tabs
-        val selectedTab = tabs[pagerState.currentPage]
-        val tabItems = tabs.map {
-            TabItem(stringResource(id = it.titleResId), it == selectedTab, it)
-        }
-        ScrollableTabs(tabItems, onClick = {
-            coroutineScope.launch {
-                pagerState.scrollToPage(it.ordinal)
-            }
-        })
-
         HorizontalPager(
-            count = tabs.size,
+            count = 1,
             state = pagerState,
             userScrollEnabled = false
-        ) { page ->
-            when (tabs[page]) {
-                CoinModule.Tab.Overview -> {
-                    CoinOverviewScreen(
-                        fullCoin = viewModel.fullCoin,
-                        navController = navController
-                    )
-                }
-                CoinModule.Tab.Market -> {
-                    CoinMarketsScreen(fullCoin = viewModel.fullCoin)
-                }
-                CoinModule.Tab.Details -> {
-                    CoinAnalyticsScreen(
-                        fullCoin = viewModel.fullCoin,
-                        navController = navController,
-                        fragmentManager = fragmentManager
-                    )
-                }
-                CoinModule.Tab.Tweets -> {
-                    CoinTweetsScreen(fullCoin = viewModel.fullCoin)
-                }
-            }
+        ) {
+            CoinOverviewScreen(
+                fullCoin = viewModel.fullCoin,
+                navController = navController
+            )
         }
 
         viewModel.successMessage?.let {

@@ -60,19 +60,19 @@ class MarketCategoryFragment : BaseFragment() {
                     CategoryScreen(
                         viewModel,
                         chartViewModel,
-                        { findNavController().popBackStack() },
-                        { coinUid -> onCoinClick(coinUid) }
+                        { findNavController().popBackStack() }
+//                        { coinUid -> onCoinClick(coinUid) }
                     )
                 }
             }
         }
     }
 
-    private fun onCoinClick(coinUid: String) {
-        val arguments = CoinFragment.prepareParams(coinUid)
-
-        findNavController().slideFromRight(R.id.coinFragment, arguments)
-    }
+//    private fun onCoinClick(coinUid: String) {
+//        val arguments = CoinFragment.prepareParams(coinUid)
+//
+//        findNavController().slideFromRight(R.id.coinFragment, arguments)
+//    }
 
     companion object {
         const val categoryKey = "coin_category"
@@ -86,7 +86,7 @@ fun CategoryScreen(
     viewModel: MarketCategoryViewModel,
     chartViewModel: ChartViewModel,
     onCloseButtonClick: () -> Unit,
-    onCoinClick: (String) -> Unit,
+//    onCoinClick: (String) -> Unit,
 ) {
     var scrollToTopAfterUpdate by rememberSaveable { mutableStateOf(false) }
     val viewItemState by viewModel.viewStateLiveData.observeAsState(ViewState.Loading)
@@ -124,7 +124,7 @@ fun CategoryScreen(
                                     scrollToTop = scrollToTopAfterUpdate,
                                     onAddFavorite = { uid -> viewModel.onAddFavorite(uid) },
                                     onRemoveFavorite = { uid -> viewModel.onRemoveFavorite(uid) },
-                                    onCoinClick = onCoinClick,
+//                                    onCoinClick = onCoinClick,
                                     preItems = {
                                         header?.let {
                                             item {

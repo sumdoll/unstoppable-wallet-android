@@ -41,7 +41,7 @@ fun CoinList(
     scrollToTop: Boolean,
     onAddFavorite: (String) -> Unit,
     onRemoveFavorite: (String) -> Unit,
-    onCoinClick: (String) -> Unit,
+//    onCoinClick: (String) -> Unit,
     userScrollEnabled: Boolean = true,
     preItems: LazyListScope.() -> Unit
 ) {
@@ -102,7 +102,9 @@ fun CoinList(
                             item.coinRate,
                             item.marketDataValue,
                             item.rank
-                        ) { onCoinClick.invoke(item.fullCoin.coin.uid) }
+                        ) {
+//                            onCoinClick.invoke(item.fullCoin.coin.uid)
+                        }
                     }
                 )
                 Divider(

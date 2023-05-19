@@ -111,10 +111,10 @@ private fun SearchResultsScreen(
                             onRemoveFavorite = { uid ->
                                 viewModel.onRemoveFavorite(uid)
                             },
-                            onCoinClick = { coinUid ->
-                                val arguments = CoinFragment.prepareParams(coinUid)
-                                navController.slideFromRight(R.id.coinFragment, arguments)
-                            },
+//                            onCoinClick = { coinUid ->
+//                                val arguments = CoinFragment.prepareParams(coinUid)
+//                                navController.slideFromRight(R.id.coinFragment, arguments)
+//                            },
                             preItems = {
                                 stickyHeader {
                                     ListHeaderMenu(viewModel)

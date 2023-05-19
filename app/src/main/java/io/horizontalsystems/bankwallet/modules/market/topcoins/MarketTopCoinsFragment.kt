@@ -63,19 +63,19 @@ class MarketTopCoinsFragment : BaseFragment() {
                 ComposeAppTheme {
                     TopCoinsScreen(
                         viewModel,
-                        { findNavController().popBackStack() },
-                        { coinUid -> onCoinClick(coinUid) }
+                        { findNavController().popBackStack() }
+//                        { coinUid -> onCoinClick(coinUid) }
                     )
                 }
             }
         }
     }
 
-    private fun onCoinClick(coinUid: String) {
-        val arguments = CoinFragment.prepareParams(coinUid)
-
-        findNavController().slideFromRight(R.id.coinFragment, arguments)
-    }
+//    private fun onCoinClick(coinUid: String) {
+//        val arguments = CoinFragment.prepareParams(coinUid)
+//
+//        findNavController().slideFromRight(R.id.coinFragment, arguments)
+//    }
 
     companion object {
         private const val sortingFieldKey = "sorting_field"
@@ -101,7 +101,7 @@ class MarketTopCoinsFragment : BaseFragment() {
 @Composable
 fun TopCoinsScreen(
     viewModel: MarketTopCoinsViewModel,
-    onCloseButtonClick: () -> Unit,
+//    onCloseButtonClick: () -> Unit,
     onCoinClick: (String) -> Unit,
 ) {
     var scrollToTopAfterUpdate by rememberSaveable { mutableStateOf(false) }
@@ -116,7 +116,7 @@ fun TopCoinsScreen(
 
     Surface(color = ComposeAppTheme.colors.tyler) {
         Column {
-            TopCloseButton(interactionSource, onCloseButtonClick)
+//            TopCloseButton(interactionSource, onCloseButtonClick)
 
             HSSwipeRefresh(
                 refreshing = isRefreshing,
@@ -139,7 +139,7 @@ fun TopCoinsScreen(
                                     scrollToTop = scrollToTopAfterUpdate,
                                     onAddFavorite = { uid -> viewModel.onAddFavorite(uid) },
                                     onRemoveFavorite = { uid -> viewModel.onRemoveFavorite(uid) },
-                                    onCoinClick = onCoinClick,
+//                                    onCoinClick = onCoinClick,
                                     preItems = {
                                         header?.let { header ->
                                             item {

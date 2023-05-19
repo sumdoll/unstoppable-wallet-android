@@ -70,10 +70,10 @@ fun MarketFavoritesScreen(
                                 scrollToTop = scrollToTopAfterUpdate,
                                 onAddFavorite = { /*not used */ },
                                 onRemoveFavorite = { uid -> viewModel.removeFromFavorites(uid) },
-                                onCoinClick = { coinUid ->
-                                    val arguments = CoinFragment.prepareParams(coinUid)
-                                    navController.slideFromRight(R.id.coinFragment, arguments)
-                                },
+//                                onCoinClick = { coinUid ->
+//                                    val arguments = CoinFragment.prepareParams(coinUid)
+//                                    navController.slideFromRight(R.id.coinFragment, arguments)
+//                                },
                                 preItems = {
                                     stickyHeader {
                                         MarketFavoritesMenu(

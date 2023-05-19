@@ -11,7 +11,6 @@ import io.horizontalsystems.bankwallet.core.managers.MarketKitWrapper
 import io.horizontalsystems.bankwallet.core.providers.Translator
 import io.horizontalsystems.bankwallet.entities.Currency
 import io.horizontalsystems.bankwallet.entities.ViewState
-import io.horizontalsystems.bankwallet.modules.coin.analytics.CoinAnalyticsModule.RankType
 import io.horizontalsystems.bankwallet.modules.coin.ranks.CoinRankModule.RankAnyValue
 import io.horizontalsystems.bankwallet.modules.coin.ranks.CoinRankModule.UiState
 import io.horizontalsystems.bankwallet.modules.market.MarketModule

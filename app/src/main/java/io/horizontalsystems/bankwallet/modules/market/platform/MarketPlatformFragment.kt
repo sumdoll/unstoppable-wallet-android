@@ -74,10 +74,10 @@ class MarketPlatformFragment : BaseFragment() {
                     PlatformScreen(
                         factory = factory,
                         onCloseButtonClick = { findNavController().popBackStack() },
-                        onCoinClick = { coinUid ->
-                            val arguments = CoinFragment.prepareParams(coinUid)
-                            findNavController().slideFromRight(R.id.coinFragment, arguments)
-                        }
+//                        onCoinClick = { coinUid ->
+//                            val arguments = CoinFragment.prepareParams(coinUid)
+//                            findNavController().slideFromRight(R.id.coinFragment, arguments)
+//                        }
                     )
                 }
             }
@@ -99,7 +99,7 @@ class MarketPlatformFragment : BaseFragment() {
 private fun PlatformScreen(
     factory: ViewModelProvider.Factory,
     onCloseButtonClick: () -> Unit,
-    onCoinClick: (String) -> Unit,
+//    onCoinClick: (String) -> Unit,
     viewModel: MarketPlatformViewModel = viewModel(factory = factory),
     chartViewModel: ChartViewModel = viewModel(factory = factory),
 ) {
@@ -139,7 +139,7 @@ private fun PlatformScreen(
                                     onRemoveFavorite = { uid ->
                                         viewModel.onRemoveFavorite(uid)
                                     },
-                                    onCoinClick = onCoinClick,
+//                                    onCoinClick = onCoinClick,
                                     preItems = {
                                         viewModel.header.let {
                                             item {
