@@ -95,51 +95,6 @@ fun ReleaseNotesScreen(
                 onRetryClick = { viewModel.retry() },
                 onUrlClick = {}
             )
-
-            Divider(
-                thickness = 1.dp,
-                color = ComposeAppTheme.colors.steel10,
-            )
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(ComposeAppTheme.colors.tyler)
-                    .height(62.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Spacer(Modifier.padding(start = 16.dp))
-                IconButton(
-                    R.drawable.ic_twitter_filled_24,
-                    viewModel.twitterUrl
-                )
-                IconButton(
-                    R.drawable.ic_telegram_filled_24,
-                    viewModel.telegramUrl
-                )
-                IconButton(
-                    R.drawable.ic_reddit_filled_24,
-                    viewModel.redditUrl
-                )
-
-                Spacer(Modifier.weight(1f))
-
-                caption_grey(
-                    modifier = Modifier.padding(end = 24.dp),
-                    text = stringResource(R.string.ReleaseNotes_FollowUs)
-                )
-            }
         }
-    }
-}
-
-@Composable
-private fun IconButton(icon: Int, twitterUrl: String) {
-    val context = LocalContext.current
-    HsIconButton(onClick = { LinkHelper.openLinkInAppBrowser(context, twitterUrl) }) {
-        Icon(
-            painter = painterResource(id = icon),
-            contentDescription = null,
-            tint = ComposeAppTheme.colors.grey
-        )
     }
 }

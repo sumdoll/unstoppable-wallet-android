@@ -179,30 +179,6 @@ private fun SettingSections(viewModel: AboutViewModel, navController: NavControl
             )
         }, {
             HsSettingCell(
-                R.string.SettingsAboutApp_Twitter,
-                R.drawable.ic_twitter_20,
-                onClick = { LinkHelper.openLinkInAppBrowser(context, viewModel.twitterLink) }
-            )
-        }, {
-            HsSettingCell(
-                R.string.SettingsAboutApp_Site,
-                R.drawable.ic_globe,
-                onClick = { LinkHelper.openLinkInAppBrowser(context, viewModel.appWebPageLink) }
-            )
-        })
-    )
-
-    Spacer(Modifier.height(32.dp))
-
-    CellUniversalLawrenceSection(
-        listOf({
-            HsSettingCell(
-                R.string.Settings_RateUs,
-                R.drawable.ic_star_20,
-                onClick = { RateAppManager.openPlayMarket(context) }
-            )
-        }, {
-            HsSettingCell(
                 R.string.Settings_ShareThisWallet,
                 R.drawable.ic_share_20,
                 onClick = { shareAppLink(viewModel.appWebPageLink, context) }
@@ -211,16 +187,6 @@ private fun SettingSections(viewModel: AboutViewModel, navController: NavControl
     )
 
     Spacer(Modifier.height(32.dp))
-
-    CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
-                R.string.SettingsContact_Title,
-                R.drawable.ic_email,
-                onClick = { sendEmail(viewModel.reportEmail, context) }
-            )
-        }
-    )
 }
 
 @Composable
@@ -265,19 +231,6 @@ private fun shareAppLink(appLink: String, context: Context) {
             Translator.getString(R.string.SettingsShare_Title)
         )
     )
-}
-
-private fun sendEmail(recipient: String, context: Context) {
-    val intent = Intent(Intent.ACTION_SENDTO).apply {
-        data = Uri.parse("mailto:")
-        putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-    }
-
-    try {
-        context.startActivity(intent)
-    } catch (e: ActivityNotFoundException) {
-        TextHelper.copyText(recipient)
-    }
 }
 
 @Preview

@@ -3,7 +3,6 @@ package io.horizontalsystems.bankwallet.modules.settings.main
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.os.bundleOf
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -37,7 +35,6 @@ import io.horizontalsystems.bankwallet.modules.walletconnect.version1.WC1Manager
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.TranslatableString
 import io.horizontalsystems.bankwallet.ui.compose.components.*
-import io.horizontalsystems.bankwallet.ui.helpers.LinkHelper
 
 @Composable
 fun SettingsScreen(
@@ -191,20 +188,6 @@ private fun SettingSections(
     Spacer(Modifier.height(32.dp))
 
     CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
-                R.string.Settings_ExperimentalFeatures,
-                R.drawable.ic_experimental,
-                onClick = {
-                    navController.slideFromRight(R.id.experimentalFeaturesFragment)
-                }
-            )
-        }
-    )
-
-    Spacer(Modifier.height(32.dp))
-
-    CellUniversalLawrenceSection(
         listOf({
             HsSettingCell(
                 R.string.Settings_Faq,
@@ -215,20 +198,6 @@ private fun SettingSections(
             )
         }, {
             HsSettingCell(
-                R.string.Guides_Title,
-                R.drawable.ic_academy_20,
-                onClick = {
-                    navController.slideFromRight(R.id.academyFragment)
-                }
-            )
-        })
-    )
-
-    Spacer(Modifier.height(32.dp))
-
-    CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
                 R.string.SettingsAboutApp_Title,
                 R.drawable.ic_about_app_20,
                 showAlert = showAlertAboutApp,
@@ -236,7 +205,7 @@ private fun SettingSections(
                     navController.slideFromRight(R.id.aboutAppFragment)
                 }
             )
-        }
+        })
     )
 
     Spacer(Modifier.height(32.dp))
@@ -317,56 +286,13 @@ private fun SettingsFooter(appVersion: String, companyWebPage: String) {
             color = ComposeAppTheme.colors.grey,
         )
         Image(
-            modifier = Modifier
-                .padding(top = 32.dp)
-                .size(32.dp)
-                .clickable {
-                    LinkHelper.openLinkInAppBrowser(context, companyWebPage)
-                },
+            modifier = Modifier.padding(top = 12.dp),
             painter = painterResource(id = R.drawable.ic_company_logo),
             contentDescription = null,
         )
         caption_grey(
-            modifier = Modifier.padding(top = 12.dp, bottom = 32.dp),
+            modifier = Modifier.padding(top = 12.dp, bottom = 12.dp),
             text = stringResource(R.string.Settings_CompanyName),
         )
-    }
-}
-
-@Preview
-@Composable
-private fun previewSettingsScreen() {
-    ComposeAppTheme {
-        Column {
-            CellSingleLineLawrenceSection(
-                listOf({
-                    HsSettingCell(
-                        R.string.Settings_Faq,
-                        R.drawable.ic_faq_20,
-                        showAlert = true,
-                        onClick = { }
-                    )
-                }, {
-                    HsSettingCell(
-                        R.string.Guides_Title,
-                        R.drawable.ic_academy_20,
-                        onClick = { }
-                    )
-                })
-            )
-
-            Spacer(Modifier.height(32.dp))
-
-            CellSingleLineLawrenceSection(
-                listOf {
-                    HsSettingCell(
-                        R.string.Settings_WalletConnect,
-                        R.drawable.ic_wallet_connect_20,
-                        counterBadge = "13",
-                        onClick = { }
-                    )
-                }
-            )
-        }
     }
 }
