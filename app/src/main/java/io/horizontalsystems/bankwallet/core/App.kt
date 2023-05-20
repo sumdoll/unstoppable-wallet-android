@@ -36,8 +36,6 @@ import io.horizontalsystems.bankwallet.modules.lockscreen.LockScreenActivity
 import io.horizontalsystems.bankwallet.modules.market.favorites.MarketFavoritesMenuService
 import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsRepository
 import io.horizontalsystems.bankwallet.modules.pin.PinComponent
-import io.horizontalsystems.bankwallet.modules.profeatures.ProFeaturesAuthorizationManager
-import io.horizontalsystems.bankwallet.modules.profeatures.storage.ProFeaturesStorage
 import io.horizontalsystems.bankwallet.modules.theme.ThemeType
 import io.horizontalsystems.bankwallet.modules.walletconnect.storage.WC1SessionStorage
 import io.horizontalsystems.bankwallet.modules.walletconnect.storage.WC2SessionStorage
@@ -90,7 +88,6 @@ class App : CoreApp(), WorkConfiguration.Provider, ImageLoaderFactory {
         lateinit var accountManager: IAccountManager
         lateinit var accountFactory: IAccountFactory
         lateinit var backupManager: IBackupManager
-        lateinit var proFeatureAuthorizationManager: ProFeaturesAuthorizationManager
         lateinit var zcashBirthdayProvider: ZcashBirthdayProvider
 
         lateinit var connectivityManager: ConnectivityManager
@@ -190,9 +187,6 @@ class App : CoreApp(), WorkConfiguration.Provider, ImageLoaderFactory {
 
         accountCleaner = AccountCleaner()
         accountManager = AccountManager(accountsStorage, accountCleaner)
-
-        val proFeaturesStorage = ProFeaturesStorage(appDatabase)
-        proFeatureAuthorizationManager = ProFeaturesAuthorizationManager(proFeaturesStorage, accountManager, appConfigProvider)
 
         enabledWalletsStorage = EnabledWalletsStorage(appDatabase)
         walletStorage = WalletStorage(marketKit, enabledWalletsStorage)
