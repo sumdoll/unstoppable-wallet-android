@@ -28,7 +28,6 @@ import io.horizontalsystems.bankwallet.modules.market.MarketModule
 import io.horizontalsystems.bankwallet.modules.market.SortingField
 import io.horizontalsystems.bankwallet.modules.market.Value
 import io.horizontalsystems.bankwallet.modules.settings.appearance.AppIcon
-import io.horizontalsystems.bankwallet.modules.settings.security.tor.TorStatus
 import io.horizontalsystems.bankwallet.modules.settings.terms.TermsModule
 import io.horizontalsystems.bankwallet.modules.theme.ThemeType
 import io.horizontalsystems.bankwallet.modules.transactions.FilterTransactionType
@@ -408,15 +407,6 @@ interface IAddressParser {
 
 interface IAccountCleaner {
     fun clearAccounts(accountIds: List<String>)
-}
-
-interface ITorManager {
-    fun start()
-    fun stop(): Single<Boolean>
-    fun setTorAsEnabled()
-    fun setTorAsDisabled()
-    val isTorEnabled: Boolean
-    val torStatusFlow: StateFlow<TorStatus>
 }
 
 interface IRateAppManager {

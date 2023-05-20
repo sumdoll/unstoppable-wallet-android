@@ -80,7 +80,6 @@ object MainModule {
         val contentHidden: Boolean,
         val showWhatsNew: Boolean,
         val activeWallet: Account?,
-        val torEnabled: Boolean,
         val wcSupportState: WC1Manager.SupportState?
     )
 }

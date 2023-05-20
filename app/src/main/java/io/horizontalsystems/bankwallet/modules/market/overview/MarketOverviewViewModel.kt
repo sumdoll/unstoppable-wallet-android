@@ -254,13 +254,13 @@ class MarketOverviewViewModel(
                 defiMarketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
                 defiMarketCapDiff,
                 getChartData(defiMarketCapPoints),
-                MetricsType.DefiCap
+                MetricsType.UsdtC2C
             ),
             defiTvl = MetricData(
                 tvl?.let { formatFiatShortened(it, baseCurrency.symbol) },
                 tvlDiff,
                 getChartData(defiTvlPoints),
-                MetricsType.TvlInDefi
+                MetricsType.UsdRate
             )
         )
     }

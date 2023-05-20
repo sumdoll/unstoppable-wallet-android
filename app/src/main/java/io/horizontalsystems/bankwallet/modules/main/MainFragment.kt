@@ -43,7 +43,6 @@ import io.horizontalsystems.bankwallet.modules.rooteddevice.RootedDeviceModule
 import io.horizontalsystems.bankwallet.modules.rooteddevice.RootedDeviceScreen
 import io.horizontalsystems.bankwallet.modules.rooteddevice.RootedDeviceViewModel
 import io.horizontalsystems.bankwallet.modules.settings.main.SettingsScreen
-import io.horizontalsystems.bankwallet.modules.tor.TorStatusView
 import io.horizontalsystems.bankwallet.modules.transactions.TransactionsModule
 import io.horizontalsystems.bankwallet.modules.transactions.TransactionsScreen
 import io.horizontalsystems.bankwallet.modules.transactions.TransactionsViewModel
@@ -156,9 +155,6 @@ private fun MainScreen(
                 backgroundColor = ComposeAppTheme.colors.tyler,
                 bottomBar = {
                     Column {
-                        if (uiState.torEnabled) {
-                            TorStatusView()
-                        }
                         HsBottomNavigation(
                             backgroundColor = ComposeAppTheme.colors.tyler,
                             elevation = 10.dp

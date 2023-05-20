@@ -68,7 +68,6 @@ class App : CoreApp(), WorkConfiguration.Provider, ImageLoaderFactory {
         lateinit var feeRateProvider: FeeRateProvider
         lateinit var localStorage: ILocalStorage
         lateinit var marketStorage: IMarketStorage
-        lateinit var torKitManager: ITorManager
         lateinit var restoreSettingsStorage: IRestoreSettingsStorage
         lateinit var currencyManager: CurrencyManager
         lateinit var languageManager: LanguageManager
@@ -155,8 +154,6 @@ class App : CoreApp(), WorkConfiguration.Provider, ImageLoaderFactory {
             thirdKeyboardStorage = this
             marketStorage = this
         }
-
-        torKitManager = TorManager(instance, localStorage)
 
         marketKit = MarketKitWrapper(
             context = this,

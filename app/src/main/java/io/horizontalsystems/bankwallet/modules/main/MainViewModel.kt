@@ -75,7 +75,6 @@ class MainViewModel(
     private var showWhatsNew = false
     private var activeWallet = accountManager.activeAccount
     private var wcSupportState: WC1Manager.SupportState? = null
-    private var torEnabled = localStorage.torEnabled
 
     val wallets: List<Account>
         get() = accountManager.accounts.filter { !it.isWatchAccount }
@@ -92,7 +91,6 @@ class MainViewModel(
             showWhatsNew = showWhatsNew,
             activeWallet = activeWallet,
             wcSupportState = wcSupportState,
-            torEnabled = torEnabled
         )
     )
         private set
@@ -200,7 +198,6 @@ class MainViewModel(
             showWhatsNew = showWhatsNew,
             activeWallet = activeWallet,
             wcSupportState = wcSupportState,
-            torEnabled = torEnabled
         )
     }
 

@@ -41,9 +41,9 @@ class MetricsPageViewModel(
         marketField = when (metricsType) {
             MetricsType.Volume24h -> MarketField.Volume
             MetricsType.TotalMarketCap,
-            MetricsType.DefiCap,
+            MetricsType.UsdtC2C,
             MetricsType.BtcDominance,
-            MetricsType.TvlInDefi -> MarketField.MarketCap
+            MetricsType.UsdRate -> MarketField.MarketCap
         }
 
         service.marketItemsObservable

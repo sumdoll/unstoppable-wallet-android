@@ -28,7 +28,7 @@ class TvlViewModel(
             tvlDiffTypeLiveData.postValue(value)
         }
     private var tvlItems: List<TvlModule.MarketTvlItem> = listOf()
-    private val metricsType = MetricsType.TvlInDefi
+    private val metricsType = MetricsType.UsdRate
 
     val isRefreshingLiveData = MutableLiveData<Boolean>()
     val tvlLiveData = MutableLiveData<TvlModule.TvlData>()

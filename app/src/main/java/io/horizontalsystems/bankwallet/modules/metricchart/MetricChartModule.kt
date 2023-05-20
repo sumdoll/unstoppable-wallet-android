@@ -7,15 +7,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 enum class MetricsType : Parcelable {
-    TotalMarketCap, BtcDominance, Volume24h, DefiCap, TvlInDefi;
+    TotalMarketCap, BtcDominance, Volume24h, UsdtC2C, UsdRate;
 
     val title: Int
         get() = when (this) {
             TotalMarketCap -> R.string.MarketGlobalMetrics_TotalMarketCap
             BtcDominance -> R.string.MarketGlobalMetrics_BtcDominance
             Volume24h -> R.string.MarketGlobalMetrics_Volume
-            DefiCap -> R.string.MarketGlobalMetrics_DefiCap
-            TvlInDefi -> R.string.MarketGlobalMetrics_TvlInDefi
+            UsdtC2C -> R.string.MarketGlobalMetrics_UsdtC2C
+            UsdRate -> R.string.MarketGlobalMetrics_UsdRate
         }
 
     val description: Int
@@ -23,8 +23,8 @@ enum class MetricsType : Parcelable {
             TotalMarketCap -> R.string.MarketGlobalMetrics_TotalMarketCapDescription
             BtcDominance -> R.string.MarketGlobalMetrics_BtcDominanceDescription
             Volume24h -> R.string.MarketGlobalMetrics_VolumeDescription
-            DefiCap -> R.string.MarketGlobalMetrics_DefiCapDescription
-            TvlInDefi -> R.string.MarketGlobalMetrics_TvlInDefiDescription
+            UsdtC2C -> R.string.MarketGlobalMetrics_USDTC2CDescription
+            UsdRate -> R.string.MarketGlobalMetrics_USDRateDescription
         }
 
     val headerIcon: ImageSource
@@ -33,8 +33,8 @@ enum class MetricsType : Parcelable {
                 TotalMarketCap,
                 BtcDominance -> "total_mcap"
                 Volume24h -> "total_volume"
-                DefiCap -> "defi_cap"
-                TvlInDefi -> "tvl"
+                UsdtC2C -> "usdt_c2c"
+                UsdRate -> "usd_rate"
             }
 
             return ImageSource.Remote("https://cdn.blocksdecoded.com/header-images/$imageName@3x.png")

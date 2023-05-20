@@ -31,8 +31,8 @@ class GlobalMarketRepository(
                         MetricsType.TotalMarketCap -> point.marketCap
                         MetricsType.BtcDominance -> point.btcDominance
                         MetricsType.Volume24h -> point.volume24h
-                        MetricsType.DefiCap -> point.defiMarketCap
-                        MetricsType.TvlInDefi -> point.tvl
+                        MetricsType.UsdtC2C -> point.defiMarketCap
+                        MetricsType.UsdRate -> point.tvl
                     }
 
                     val dominance = if (metricsType == MetricsType.TotalMarketCap) point.btcDominance.toFloat() else null
@@ -59,7 +59,7 @@ class GlobalMarketRepository(
         sortDescending: Boolean,
         metricsType: MetricsType
     ): Single<List<MarketItem>> {
-        return marketKit.marketInfosSingle(250, currency.code, defi = metricsType == MetricsType.DefiCap)
+        return marketKit.marketInfosSingle(250, currency.code, defi = metricsType == MetricsType.UsdtC2C)
             .map { coinMarkets ->
                 val marketItems = coinMarkets.map { MarketItem.createFromCoinMarket(it, currency) }
                 val sortingField = when (metricsType) {
