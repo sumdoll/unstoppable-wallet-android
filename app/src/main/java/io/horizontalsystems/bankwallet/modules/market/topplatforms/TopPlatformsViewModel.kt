@@ -22,13 +22,11 @@ class TopPlatformsViewModel(
 ) : ViewModel() {
 
     private val sortingFields = listOf(
-        SortingField.HighestCap,
-        SortingField.LowestCap,
-        SortingField.TopGainers,
-        SortingField.TopLosers
+        SortingField.TopSales,
+        SortingField.TopBuys
     )
 
-    var sortingField: SortingField = SortingField.HighestCap
+    var sortingField: SortingField = SortingField.TopSales
         private set
 
     val periodOptions = TimeDuration.values().toList()

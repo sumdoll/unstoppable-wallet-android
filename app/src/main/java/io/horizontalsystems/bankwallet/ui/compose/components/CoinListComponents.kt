@@ -309,7 +309,7 @@ fun RowScope.CategoryCard(
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         subhead1_leah(
-                            text = stringResource(R.string.Market_Category_TopCoins),
+                            text = stringResource(R.string.Market_Category_TopMalls),
                             maxLines = 1
                         )
                     }

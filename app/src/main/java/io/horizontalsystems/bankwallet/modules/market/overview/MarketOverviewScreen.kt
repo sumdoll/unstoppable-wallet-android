@@ -62,7 +62,7 @@ fun MarketOverviewScreen(
                                 .verticalScroll(scrollState)
                         ) {
                             Box(
-                                modifier = Modifier.height(240.dp)
+                                modifier = Modifier.height(120.dp)
                             ) {
                                 MetricChartsView(viewItem.marketMetrics, navController)
                             }
@@ -99,22 +99,22 @@ fun MarketOverviewScreen(
 //                                }
 //                            )
 
-                            TopPlatformsBoardView(
-                                viewItem.topPlatformsBoard,
-                                onSelectTimeDuration = { timeDuration ->
-                                    viewModel.onSelectTopPlatformsTimeDuration(timeDuration)
-                                },
-                                onItemClick = {
-                                    val args = MarketPlatformFragment.prepareParams(it)
-                                    navController.slideFromRight(R.id.marketPlatformFragment, args)
-                                },
-                                onClickSeeAll = {
-                                    val timeDuration = viewModel.topPlatformsTimeDuration
-                                    val args = TopPlatformsFragment.prepareParams(timeDuration)
-
-                                    navController.slideFromBottom(R.id.marketTopPlatformsFragment, args)
-                                }
-                            )
+//                            TopPlatformsBoardView(
+//                                viewItem.topPlatformsBoard,
+//                                onSelectTimeDuration = { timeDuration ->
+//                                    viewModel.onSelectTopPlatformsTimeDuration(timeDuration)
+//                                },
+//                                onItemClick = {
+//                                    val args = MarketPlatformFragment.prepareParams(it)
+//                                    navController.slideFromRight(R.id.marketPlatformFragment, args)
+//                                },
+//                                onClickSeeAll = {
+//                                    val timeDuration = viewModel.topPlatformsTimeDuration
+//                                    val args = TopPlatformsFragment.prepareParams(timeDuration)
+//
+//                                    navController.slideFromBottom(R.id.marketTopPlatformsFragment, args)
+//                                }
+//                            )
                         }
                     }
                 }

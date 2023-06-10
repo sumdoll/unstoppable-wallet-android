@@ -27,7 +27,7 @@ class MarketPlatformViewModel(
 
     private val marketFields = MarketField.values().toList()
 
-    var sortingField: SortingField = SortingField.HighestCap
+    var sortingField: SortingField = SortingField.TopSales
         private set
 
     var marketField: MarketField = MarketField.PriceDiff

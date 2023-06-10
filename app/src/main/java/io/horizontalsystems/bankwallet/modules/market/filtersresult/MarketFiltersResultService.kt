@@ -25,7 +25,7 @@ class MarketFiltersResultService(
 
     val sortingFields = SortingField.values().toList()
     private val marketFields = MarketField.values().toList()
-    var sortingField = SortingField.HighestCap
+    var sortingField = SortingField.TopSales
     var marketField = MarketField.PriceDiff
 
     val menu: MarketCategoryModule.Menu

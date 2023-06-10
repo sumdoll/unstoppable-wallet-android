@@ -11,7 +11,7 @@ class MarketFavoritesMenuService(
 ) {
 
     var sortingField: SortingField
-        get() = localStorage.marketFavoritesSortingField ?: SortingField.HighestCap
+        get() = localStorage.marketFavoritesSortingField ?: SortingField.TopSales
         set(value) {
             localStorage.marketFavoritesSortingField = value
             marketWidgetManager.updateWatchListWidgets()

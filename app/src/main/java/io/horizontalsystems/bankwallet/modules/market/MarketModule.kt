@@ -47,8 +47,8 @@ object MarketModule {
     }
 
     enum class ListType(val sortingField: SortingField, val marketField: MarketField) {
-        TopGainers(SortingField.TopGainers, MarketField.PriceDiff),
-        TopLosers(SortingField.TopLosers, MarketField.PriceDiff),
+        TopGainers(SortingField.TopSales, MarketField.PriceDiff),
+        TopLosers(SortingField.TopBuys, MarketField.PriceDiff),
     }
 
     data class Header(
@@ -85,19 +85,13 @@ data class MarketItem(
 }
 
 fun List<MarketItem>.sort(sortingField: SortingField) = when (sortingField) {
-    SortingField.HighestCap -> sortedByDescendingNullLast { it.marketCap.value }
-    SortingField.LowestCap -> sortedByNullLast { it.marketCap.value }
-    SortingField.HighestVolume -> sortedByDescendingNullLast { it.volume.value }
-    SortingField.LowestVolume -> sortedByNullLast { it.volume.value }
-    SortingField.TopGainers -> sortedByDescendingNullLast { it.diff }
-    SortingField.TopLosers -> sortedByNullLast { it.diff }
+    SortingField.TopSales -> sortedByDescendingNullLast { it.diff }
+    SortingField.TopBuys -> sortedByNullLast { it.diff }
 }
 
 @Parcelize
 enum class SortingField(@StringRes val titleResId: Int) : WithTranslatableTitle, Parcelable {
-    HighestCap(R.string.Market_Field_HighestCap), LowestCap(R.string.Market_Field_LowestCap),
-    HighestVolume(R.string.Market_Field_HighestVolume), LowestVolume(R.string.Market_Field_LowestVolume),
-    TopGainers(R.string.RateList_TopGainers), TopLosers(R.string.RateList_TopLosers);
+    TopSales(R.string.RateList_TopSales), TopBuys(R.string.RateList_TopBuys);
 
     override val title: TranslatableString
         get() = TranslatableString.ResString(titleResId)
@@ -111,7 +105,6 @@ enum class SortingField(@StringRes val titleResId: Int) : WithTranslatableTitle,
 @Parcelize
 enum class MarketField(@StringRes val titleResId: Int) : WithTranslatableTitle, Parcelable {
     PriceDiff(R.string.Market_Field_PriceDiff),
-    MarketCap(R.string.Market_Field_MarketCap),
     Volume(R.string.Market_Field_Volume);
 
     fun next() = values()[if (ordinal == values().size - 1) 0 else ordinal + 1]

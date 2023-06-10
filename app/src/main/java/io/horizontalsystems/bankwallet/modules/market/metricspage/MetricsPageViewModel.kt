@@ -43,7 +43,7 @@ class MetricsPageViewModel(
             MetricsType.TotalMarketCap,
             MetricsType.UsdtC2C,
             MetricsType.BtcDominance,
-            MetricsType.UsdRate -> MarketField.MarketCap
+            MetricsType.UsdRate -> MarketField.PriceDiff
         }
 
         service.marketItemsObservable

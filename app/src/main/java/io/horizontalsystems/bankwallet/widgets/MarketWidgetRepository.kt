@@ -44,7 +44,7 @@ class MarketWidgetRepository(
 
     private suspend fun getTopPlatforms(): List<MarketWidgetItem> {
         val platformItems = topPlatformsRepository.get(
-            sortingField = SortingField.HighestCap,
+            sortingField = SortingField.TopSales,
             timeDuration = TimeDuration.OneDay,
             forceRefresh = true,
             limit = itemsLimit
@@ -76,7 +76,7 @@ class MarketWidgetRepository(
 
         val sortedMarketItems = marketItems
             .subList(0, Integer.min(marketItems.size, topGainers))
-            .sort(SortingField.TopGainers)
+            .sort(SortingField.TopSales)
             .subList(0, Integer.min(marketItems.size, itemsLimit))
 
         return sortedMarketItems.map { marketWidgetItem(it, MarketField.PriceDiff) }
@@ -108,9 +108,6 @@ class MarketWidgetRepository(
         var diff: BigDecimal? = null
 
         when (marketField) {
-            MarketField.MarketCap -> {
-                marketCap = App.numberFormatter.formatFiatShort(marketItem.marketCap.value, marketItem.marketCap.currency.symbol, 2)
-            }
             MarketField.Volume -> {
                 volume = App.numberFormatter.formatFiatShort(marketItem.volume.value, marketItem.volume.currency.symbol, 2)
             }

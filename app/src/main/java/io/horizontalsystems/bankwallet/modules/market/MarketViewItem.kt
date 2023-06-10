@@ -45,15 +45,6 @@ data class MarketViewItem(
             favorited: Boolean = false
         ): MarketViewItem {
             val marketDataValue = when (marketField) {
-                MarketField.MarketCap -> {
-                    val marketCapFormatted = App.numberFormatter.formatFiatShort(
-                        marketItem.marketCap.value,
-                        marketItem.marketCap.currency.symbol,
-                        2
-                    )
-
-                    MarketDataValue.MarketCap(marketCapFormatted)
-                }
                 MarketField.Volume -> {
                     val volumeFormatted = App.numberFormatter.formatFiatShort(
                         marketItem.volume.value,

@@ -63,8 +63,8 @@ class MarketTopCoinsViewModel(
     private fun syncHeader() {
         headerLiveData.postValue(
             MarketModule.Header(
-                Translator.getString(R.string.Market_Category_TopCoins),
-                Translator.getString(R.string.Market_Category_TopCoins_Description),
+                Translator.getString(R.string.Market_Category_TopMalls),
+                Translator.getString(R.string.Market_Category_TopMalls_Description),
                 ImageSource.Local(R.drawable.ic_top_coins)
             )
         )

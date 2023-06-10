@@ -16,7 +16,7 @@ class MarketTopCoinsService(
     private val currencyManager: CurrencyManager,
     private val favoritesManager: MarketFavoritesManager,
     topMarket: TopMarket = TopMarket.Top100,
-    sortingField: SortingField = SortingField.HighestCap,
+    sortingField: SortingField = SortingField.TopSales,
 ) {
     private var disposables = CompositeDisposable()
 

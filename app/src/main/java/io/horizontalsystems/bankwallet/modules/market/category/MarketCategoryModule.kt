@@ -49,7 +49,7 @@ object MarketCategoryModule {
         }
 
         companion object {
-            val defaultSortingField = SortingField.HighestCap
+            val defaultSortingField = SortingField.TopSales
             val defaultTopMarket = TopMarket.Top100
         }
     }

@@ -77,10 +77,8 @@ class TopPlatformsRepository(
     }
 
     fun List<TopPlatformItem>.sort(sortingField: SortingField) = when (sortingField) {
-        SortingField.HighestCap -> sortedByDescendingNullLast { it.marketCap }
-        SortingField.LowestCap -> sortedByNullLast { it.marketCap }
-        SortingField.TopGainers -> sortedByDescendingNullLast { it.changeDiff }
-        SortingField.TopLosers -> sortedByNullLast { it.changeDiff }
+        SortingField.TopSales -> sortedByDescendingNullLast { it.changeDiff }
+        SortingField.TopBuys -> sortedByNullLast { it.changeDiff }
         else -> this
     }
 

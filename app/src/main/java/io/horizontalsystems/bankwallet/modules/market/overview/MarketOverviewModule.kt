@@ -35,15 +35,11 @@ object MarketOverviewModule {
     data class ViewItem(
         val marketMetrics: MarketMetrics,
         val boards: List<Board>,
-        val topSectorsBoard: TopSectorsBoard,
-        val topPlatformsBoard: TopPlatformsBoard,
     )
 
     data class MarketMetrics(
-        val totalMarketCap: MetricData,
-        val volume24h: MetricData,
-        val defiCap: MetricData,
-        val defiTvl: MetricData,
+        val usdtPrice: MetricData,
+        val usdPrice: MetricData,
     )
 
     data class MarketMetricsPoint(

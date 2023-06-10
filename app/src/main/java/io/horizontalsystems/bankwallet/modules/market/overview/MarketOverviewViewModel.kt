@@ -56,7 +56,7 @@ class MarketOverviewViewModel(
         private set
     var topNftsTimeDuration: TimeDuration = TimeDuration.SevenDay
         private set
-    val topNftsSortingField: SortingField = SortingField.HighestVolume
+    val topNftsSortingField: SortingField = SortingField.TopSales
     var topPlatformsTimeDuration: TimeDuration = TimeDuration.OneDay
         private set
 
@@ -133,9 +133,9 @@ class MarketOverviewViewModel(
 
         return MarketOverviewModule.ViewItem(
             getMarketMetrics(marketOverview.globalMarketPoints, baseCurrency),
-            listOf(topGainersBoard, topLosersBoard),
-            topSectorsBoard(coinCategoryItems),
-            topPlatformsBoard(topPlatformItems)
+            listOf(topGainersBoard, topLosersBoard)
+//            topSectorsBoard(coinCategoryItems),
+//            topPlatformsBoard(topPlatformItems)
         )
     }
 
@@ -238,25 +238,25 @@ class MarketOverviewViewModel(
         val defiTvlPoints = globalMarketPoints.map { MarketMetricsPoint(it.tvl, it.timestamp) }
 
         return MarketMetrics(
-            totalMarketCap = MetricData(
-                marketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
-                marketCapDiff,
-                getChartData(totalMarketCapPoints),
-                MetricsType.TotalMarketCap
-            ),
-            volume24h = MetricData(
-                volume24h?.let { formatFiatShortened(it, baseCurrency.symbol) },
-                volume24hDiff,
-                getChartData(volume24Points),
-                MetricsType.Volume24h
-            ),
-            defiCap = MetricData(
+//            totalMarketCap = MetricData(
+//                marketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
+//                marketCapDiff,
+//                getChartData(totalMarketCapPoints),
+//                MetricsType.TotalMarketCap
+//            ),
+//            volume24h = MetricData(
+//                volume24h?.let { formatFiatShortened(it, baseCurrency.symbol) },
+//                volume24hDiff,
+//                getChartData(volume24Points),
+//                MetricsType.Volume24h
+//            ),
+            usdtPrice = MetricData(
                 defiMarketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
                 defiMarketCapDiff,
                 getChartData(defiMarketCapPoints),
                 MetricsType.UsdtC2C
             ),
-            defiTvl = MetricData(
+            usdPrice = MetricData(
                 tvl?.let { formatFiatShortened(it, baseCurrency.symbol) },
                 tvlDiff,
                 getChartData(defiTvlPoints),
@@ -278,8 +278,8 @@ class MarketOverviewViewModel(
 
     private fun getSectionTitle(type: ListType): Int {
         return when (type) {
-            ListType.TopGainers -> R.string.RateList_TopGainers
-            ListType.TopLosers -> R.string.RateList_TopLosers
+            ListType.TopGainers -> R.string.RateList_TopSales
+            ListType.TopLosers -> R.string.RateList_TopBuys
         }
     }
 
@@ -338,10 +338,10 @@ class MarketOverviewViewModel(
     fun getTopCoinsParams(listType: ListType): Triple<SortingField, TopMarket, MarketField> {
         return when (listType) {
             ListType.TopGainers -> {
-                Triple(SortingField.TopGainers, gainersTopMarket, MarketField.PriceDiff)
+                Triple(SortingField.TopSales, gainersTopMarket, MarketField.PriceDiff)
             }
             ListType.TopLosers -> {
-                Triple(SortingField.TopLosers, losersTopMarket, MarketField.PriceDiff)
+                Triple(SortingField.TopBuys, losersTopMarket, MarketField.PriceDiff)
             }
         }
     }

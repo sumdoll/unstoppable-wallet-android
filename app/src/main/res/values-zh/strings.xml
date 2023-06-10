@@ -155,8 +155,8 @@
     <string name="Market_Tab_Posts">发现</string>
     <string name="Market_Tab_Watchlist">关注</string>
     <string name="Market_Tab_Watchlist_EmptyList">您的观察列表为空。</string>
-    <string name="Market_Category_TopCoins">前列代币</string>
-    <string name="Market_Category_TopCoins_Description">币种排名描述</string>
+    <string name="Market_Category_TopMalls">前列挂单</string>
+    <string name="Market_Category_TopMalls_Description">市场挂单列表</string>
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">前列行业</string>
     <!--Market Top Platforms-->
@@ -1229,8 +1229,8 @@
     <string name="NftCollection_EventType_Mint">薄荷绿</string>
     <string name="NftCollection_EventType_Unknown">未知</string>
     <!--Rate list-->
-    <string name="RateList_TopGainers">涨幅榜</string>
-    <string name="RateList_TopLosers">跌幅榜</string>
+    <string name="RateList_TopSales">我要买</string>
+    <string name="RateList_TopBuys">我要卖</string>
     <string name="RateList_Posts">发现</string>
     <string name="Market_DaysAgo">%d天前</string>
     <string name="Market_HoursAgo">%d小时前</string>

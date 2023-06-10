@@ -63,8 +63,8 @@ class GlobalMarketRepository(
             .map { coinMarkets ->
                 val marketItems = coinMarkets.map { MarketItem.createFromCoinMarket(it, currency) }
                 val sortingField = when (metricsType) {
-                    MetricsType.Volume24h -> if (sortDescending) SortingField.HighestVolume else SortingField.LowestVolume
-                    else -> if (sortDescending) SortingField.HighestCap else SortingField.LowestCap
+                    MetricsType.Volume24h -> if (sortDescending) SortingField.TopSales else SortingField.TopBuys
+                    else -> if (sortDescending) SortingField.TopSales else SortingField.TopBuys
                 }
                 marketItems.sort(sortingField)
             }

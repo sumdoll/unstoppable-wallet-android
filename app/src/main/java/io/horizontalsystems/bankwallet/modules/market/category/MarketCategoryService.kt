@@ -20,7 +20,7 @@ class MarketCategoryService(
     private val favoritesManager: MarketFavoritesManager,
     private val coinCategory: CoinCategory,
     topMarket: TopMarket = TopMarket.Top100,
-    sortingField: SortingField = SortingField.HighestCap,
+    sortingField: SortingField = SortingField.TopSales,
 ) {
     private var disposables = CompositeDisposable()
     private var favoriteDisposables = CompositeDisposable()
