@@ -69,6 +69,48 @@ fun CoinImage(
 }
 
 @Composable
+fun PayImage(
+    iconPlace: Int,
+    modifier: Modifier,
+    colorFilter: ColorFilter? = null
+) {
+    var fallback = R.drawable.pay_card
+    if (iconPlace == 1)
+        fallback = R.drawable.pay_ali
+    else if (iconPlace == 2)
+        fallback = R.drawable.pay_we
+
+    Image(
+        painter = painterResource(fallback),
+        contentDescription = null,
+        modifier = modifier,
+        colorFilter = colorFilter
+    )
+}
+
+@Composable
+fun LevelImage(
+    iconPlace: Int,
+    modifier: Modifier,
+    colorFilter: ColorFilter? = null
+) {
+    var fallback = R.drawable.coin_placeholder
+    if (iconPlace == 1)
+        fallback = R.drawable.coin_placeholder
+    else if (iconPlace == 2)
+        fallback = R.drawable.coin_placeholder
+    else if (iconPlace >= 3)
+        fallback = R.drawable.coin_placeholder
+
+    Image(
+        painter = painterResource(fallback),
+        contentDescription = null,
+        modifier = modifier,
+        colorFilter = colorFilter
+    )
+}
+
+@Composable
 fun NftIcon(
     modifier: Modifier = Modifier,
     iconUrl: String?,

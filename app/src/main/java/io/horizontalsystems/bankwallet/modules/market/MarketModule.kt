@@ -152,6 +152,40 @@ sealed class Value {
     }
 }
 
+//limitArray{amin, amax, lmin, amax}
+// type: -1: unable; 0: buy; 1: sale
+data class MarketOrderItem(
+    val headerIcon: String,
+    val markerName: String,
+    val markerLevel: Int,
+    val limitArray: IntArray,
+    val payArray: IntArray,
+    val price: Float,
+    val type: Int
+) {
+    companion object {
+        fun createFromMarket(
+            icon: String,
+            name: String,
+            level: Int,
+            limits: IntArray,
+            pays: IntArray,
+            price: Float,
+            type: Int
+        ): MarketOrderItem {
+            return MarketOrderItem(
+                headerIcon = icon,
+                markerName = name,
+                markerLevel = level,
+                limitArray = limits,
+                payArray = pays,
+                price = price,
+                type = type,
+            )
+        }
+    }
+}
+
 sealed class MarketDataValue {
     class MarketCap(val value: String) : MarketDataValue()
     class Volume(val value: String) : MarketDataValue()

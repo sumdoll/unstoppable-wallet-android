@@ -21,6 +21,16 @@ fun onItemClick(marketViewItem: MarketViewItem, navController: NavController) {
     navController.slideFromRight(R.id.coinFragment, arguments)
 }
 
+fun onBuyClick(marketViewItem: MarketViewItem, navController: NavController) {
+    val arguments = CoinFragment.prepareParams(marketViewItem.coinUid)
+    navController.slideFromRight(R.id.coinFragment, arguments)
+}
+
+fun onSaleClick(marketViewItem: MarketViewItem, navController: NavController) {
+    val arguments = CoinFragment.prepareParams(marketViewItem.coinUid)
+    navController.slideFromRight(R.id.coinFragment, arguments)
+}
+
 @Composable
 fun SeeAllButton(onClick: () -> Unit) {
     RowUniversal(

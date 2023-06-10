@@ -140,15 +140,18 @@ class MetricsPageFragment : BaseFragment() {
                                             viewModel::onSelectMarketField
                                         )
                                     }
+                                    val limits = intArrayOf(123, 4567, 5000, 10000)
+                                    val pays = intArrayOf(0, 1)
                                     items(marketData.marketViewItems) { marketViewItem ->
                                         MarketCoinClear(
                                             marketViewItem.fullCoin.coin.name,
                                             marketViewItem.fullCoin.coin.code,
-                                            marketViewItem.fullCoin.coin.imageUrl,
                                             marketViewItem.fullCoin.iconPlaceholder,
-                                            marketViewItem.coinRate,
-                                            marketViewItem.marketDataValue,
-                                            marketViewItem.rank,
+                                            2,
+                                            limits,
+                                            pays,
+                                            6.88f,
+                                            0
                                         ) { onCoinClick(marketViewItem.fullCoin.coin.uid) }
                                     }
                                 }

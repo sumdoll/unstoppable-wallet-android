@@ -49,6 +49,9 @@ fun CoinList(
     val listState = rememberLazyListState()
     var revealedCardId by remember { mutableStateOf<String?>(null) }
 
+    val limits = intArrayOf(123, 4567, 5000, 10000)
+    val pays = intArrayOf(0, 1)
+
     LazyColumn(state = listState, userScrollEnabled = userScrollEnabled) {
         preItems.invoke(this)
         itemsIndexed(items, key = { _, item -> item.coinUid }) { _, item ->
@@ -93,15 +96,18 @@ fun CoinList(
                     onConceal = {
                         revealedCardId = null
                     },
+
+
                     content = {
-                        MarketCoin(
+                        MarketPendingOrder(
                             item.fullCoin.coin.name,
                             item.fullCoin.coin.code,
-                            item.fullCoin.coin.imageUrl,
                             item.fullCoin.iconPlaceholder,
-                            item.coinRate,
-                            item.marketDataValue,
-                            item.rank
+                            2,
+                            limits,
+                            pays,
+                            7.18f,
+                            1
                         ) {
 //                            onCoinClick.invoke(item.fullCoin.coin.uid)
                         }

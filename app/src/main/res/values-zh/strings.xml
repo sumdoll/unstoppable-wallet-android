@@ -157,6 +157,21 @@
     <string name="Market_Tab_Watchlist_EmptyList">您的观察列表为空。</string>
     <string name="Market_Category_TopMalls">前列挂单</string>
     <string name="Market_Category_TopMalls_Description">市场挂单列表</string>
+
+    <!--Market Order-->
+    <string name="MarketOrder_Title">市场挂单</string>
+    <string name="MarketOrder_OrderBook">挂单</string>
+    <string name="MarketOrder_Empty">没有挂单</string>
+    <string name="MarketOrder_Sum">总计</string>
+    <string name="MarketOrder_Orders">订单</string>
+    <string name="MarketOrder_Amount">数量</string>
+    <string name="MarketOrder_Price">价格</string>
+    <string name="MarketOrder_Limit">限额</string>
+    <string name="MarketOrder_Sale">出售</string>
+    <string name="MarketOrder_Buy">购买</string>
+    <string name="MarketOrder_Unable">不满足交易条件</string>
+    <string name="MarketOrder_Exchange">交易所</string>
+
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">前列行业</string>
     <!--Market Top Platforms-->

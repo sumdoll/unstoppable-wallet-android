@@ -157,7 +157,6 @@
     <string name="Backup_Confirmation_CheckTitle">Check…</string>
 
     <!--Market-->
-
     <string name="Market_Field_MarketCap">MCap</string>
     <string name="Market_Field_Volume">Vol</string>
     <string name="Market_Field_PriceDiff">Price</string>
@@ -188,6 +187,20 @@
     <string name="Market_Tab_Watchlist_EmptyList">Your watchlist is empty.</string>
     <string name="Market_Category_TopMalls">Top Orders</string>
     <string name="Market_Category_TopMalls_Description">Pending orders by market cap rank</string>
+
+    <!--Market Order-->
+    <string name="MarketOrder_Title">Market order</string>
+    <string name="MarketOrder_OrderBook">Order book</string>
+    <string name="MarketOrder_Empty">No order</string>
+    <string name="MarketOrder_Sum">Sum</string>
+    <string name="MarketOrder_Orders">Orders</string>
+    <string name="MarketOrder_Amount">Amount</string>
+    <string name="MarketOrder_Price">Price</string>
+    <string name="MarketOrder_Limit">Limit</string>
+    <string name="MarketOrder_Sale">Sale</string>
+    <string name="MarketOrder_Buy">Buy</string>
+    <string name="MarketOrder_Unable">Unable to deal with this order</string>
+    <string name="MarketOrder_Exchange">Exchange</string>
 
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">Top Sectors</string>

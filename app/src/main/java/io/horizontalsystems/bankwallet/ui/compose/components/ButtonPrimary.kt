@@ -91,6 +91,33 @@ fun ButtonPrimaryTransparent(
 }
 
 @Composable
+fun ButtonPrimaryGreen(
+    modifier: Modifier = Modifier,
+    title: String,
+    onClick: () -> Unit,
+    enabled: Boolean = true
+) {
+    ButtonPrimary(
+        modifier = modifier,
+        onClick = onClick,
+        buttonColors = ButtonPrimaryDefaults.textButtonColors(
+            backgroundColor = ComposeAppTheme.colors.greenD,
+            contentColor = ComposeAppTheme.colors.dark,
+            disabledBackgroundColor = ComposeAppTheme.colors.steel20,
+            disabledContentColor = ComposeAppTheme.colors.grey50,
+        ),
+        content = {
+            Text(
+                title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
+        enabled = enabled
+    )
+}
+
+@Composable
 fun ButtonPrimaryYellow(
     modifier: Modifier = Modifier,
     title: String,

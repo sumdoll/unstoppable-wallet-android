@@ -48,8 +48,8 @@ fun BoardsView(
                 .clip(RoundedCornerShape(12.dp))
                 .background(ComposeAppTheme.colors.lawrence)
         ){
-            boardItem.marketViewItems.forEach { coin ->
-                MarketCoinWithBackground(coin, navController)
+            boardItem.marketViewItems.forEach { porder ->
+                MarketCoinWithBackground(porder, navController)
             }
 
             SeeAllButton { onClickSeeAll(boardItem.type) }
@@ -112,15 +112,20 @@ private fun MarketCoinWithBackground(
     marketViewItem: MarketViewItem,
     navController: NavController
 ) {
+    val limits = intArrayOf(1234, 4567, 5000, 10000)
+    val pays = intArrayOf(1, 2)
     MarketCoinClear(
         marketViewItem.coinName,
         marketViewItem.coinCode,
-        marketViewItem.iconUrl,
         marketViewItem.iconPlaceHolder,
-        marketViewItem.coinRate,
-        marketViewItem.marketDataValue,
-        marketViewItem.rank
+        1,
+        limits,
+        pays,
+        7.28f,
+        0
     ) {
+//        onBuyClick(marketViewItem, navController)
+//        onSaleClick(marketViewItem, navController)
         onItemClick(marketViewItem, navController)
     }
 }
