@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.market.topcoins
+package io.horizontalsystems.bankwallet.modules.market.toporders
 
 import io.horizontalsystems.bankwallet.core.managers.CurrencyManager
 import io.horizontalsystems.bankwallet.core.managers.MarketFavoritesManager
@@ -11,7 +11,7 @@ import io.horizontalsystems.bankwallet.modules.market.category.MarketItemWrapper
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 
-class MarketTopCoinsService(
+class MarketTopOrdersService(
     private val marketTopMoversRepository: MarketTopMoversRepository,
     private val currencyManager: CurrencyManager,
     private val favoritesManager: MarketFavoritesManager,

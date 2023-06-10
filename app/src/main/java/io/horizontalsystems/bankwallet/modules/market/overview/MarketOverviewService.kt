@@ -5,7 +5,7 @@ import io.horizontalsystems.bankwallet.core.managers.MarketKitWrapper
 import io.horizontalsystems.bankwallet.core.subscribeIO
 import io.horizontalsystems.bankwallet.modules.market.TimeDuration
 import io.horizontalsystems.bankwallet.modules.market.TopMarket
-import io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopMoversRepository
+import io.horizontalsystems.bankwallet.modules.market.toporders.MarketTopMoversRepository
 import io.horizontalsystems.core.BackgroundManager
 import io.horizontalsystems.marketkit.models.MarketOverview
 import io.horizontalsystems.marketkit.models.TopMovers

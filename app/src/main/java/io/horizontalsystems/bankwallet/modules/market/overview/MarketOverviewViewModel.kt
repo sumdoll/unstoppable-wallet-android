@@ -155,12 +155,8 @@ class MarketOverviewViewModel(
     }
 
     private fun getMarketMetrics(globalMarketPoints: List<GlobalMarketPoint>, baseCurrency: Currency): MarketMetrics {
-        var marketCap: BigDecimal? = null
-        var marketCapDiff: BigDecimal? = null
         var defiMarketCap: BigDecimal? = null
         var defiMarketCapDiff: BigDecimal? = null
-        var volume24h: BigDecimal? = null
-        var volume24hDiff: BigDecimal? = null
         var tvl: BigDecimal? = null
         var tvlDiff: BigDecimal? = null
 
@@ -168,14 +164,8 @@ class MarketOverviewViewModel(
             val startingPoint = globalMarketPoints.first()
             val endingPoint = globalMarketPoints.last()
 
-            marketCap = endingPoint.marketCap
-            marketCapDiff = diff(startingPoint.marketCap, marketCap)
-
             defiMarketCap = endingPoint.defiMarketCap
             defiMarketCapDiff = diff(startingPoint.defiMarketCap, defiMarketCap)
-
-            volume24h = endingPoint.volume24h
-            volume24hDiff = diff(startingPoint.volume24h, volume24h)
 
             tvl = endingPoint.tvl
             tvlDiff = diff(startingPoint.tvl, tvl)

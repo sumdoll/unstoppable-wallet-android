@@ -20,7 +20,7 @@ import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.entities.ViewState
 import io.horizontalsystems.bankwallet.modules.coin.overview.ui.Loading
 import io.horizontalsystems.bankwallet.modules.market.overview.ui.*
-import io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopCoinsFragment
+import io.horizontalsystems.bankwallet.modules.market.toporders.MarketTopOrdersFragment
 import io.horizontalsystems.bankwallet.ui.compose.HSSwipeRefresh
 import io.horizontalsystems.bankwallet.ui.compose.components.ListErrorView
 
@@ -68,7 +68,7 @@ fun MarketOverviewScreen(
                                     val (sortingField, topMarket, marketField) = viewModel.getTopCoinsParams(
                                         listType
                                     )
-                                    val args = MarketTopCoinsFragment.prepareParams(
+                                    val args = MarketTopOrdersFragment.prepareParams(
                                         sortingField,
                                         topMarket,
                                         marketField

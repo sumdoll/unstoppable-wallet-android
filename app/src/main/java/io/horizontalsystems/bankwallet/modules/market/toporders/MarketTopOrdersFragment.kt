@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.market.topcoins
+package io.horizontalsystems.bankwallet.modules.market.toporders
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,9 +22,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.BaseFragment
-import io.horizontalsystems.bankwallet.core.slideFromRight
 import io.horizontalsystems.bankwallet.entities.ViewState
-import io.horizontalsystems.bankwallet.modules.coin.CoinFragment
 import io.horizontalsystems.bankwallet.modules.coin.overview.ui.Loading
 import io.horizontalsystems.bankwallet.modules.market.MarketField
 import io.horizontalsystems.bankwallet.modules.market.SortingField
@@ -34,7 +32,7 @@ import io.horizontalsystems.bankwallet.ui.compose.HSSwipeRefresh
 import io.horizontalsystems.bankwallet.ui.compose.components.*
 import io.horizontalsystems.core.findNavController
 
-class MarketTopCoinsFragment : BaseFragment() {
+class MarketTopOrdersFragment : BaseFragment() {
 
     private val sortingField by lazy {
         arguments?.getParcelable<SortingField>(sortingFieldKey)
@@ -46,8 +44,8 @@ class MarketTopCoinsFragment : BaseFragment() {
         arguments?.getParcelable<MarketField>(marketFieldKey)
     }
 
-    val viewModel by viewModels<MarketTopCoinsViewModel> {
-        MarketTopCoinsModule.Factory(topMarket, sortingField, marketField)
+    val viewModel by viewModels<MarketTopOrdersViewModel> {
+        MarketTopOrdersModule.Factory(topMarket, sortingField, marketField)
     }
 
     override fun onCreateView(
@@ -100,7 +98,7 @@ class MarketTopCoinsFragment : BaseFragment() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TopCoinsScreen(
-    viewModel: MarketTopCoinsViewModel,
+    viewModel: MarketTopOrdersViewModel,
 //    onCloseButtonClick: () -> Unit,
     onCoinClick: (String) -> Unit,
 ) {

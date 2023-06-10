@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.market.topcoins
+package io.horizontalsystems.bankwallet.modules.market.toporders
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -8,7 +8,7 @@ import io.horizontalsystems.bankwallet.modules.market.SortingField
 import io.horizontalsystems.bankwallet.modules.market.TopMarket
 import io.horizontalsystems.bankwallet.ui.compose.Select
 
-object MarketTopCoinsModule {
+object MarketTopOrdersModule {
 
     class Factory(
         private val topMarket: TopMarket? = null,
@@ -18,14 +18,14 @@ object MarketTopCoinsModule {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val topMarketsRepository = MarketTopMoversRepository(App.marketKit)
-            val service = MarketTopCoinsService(
+            val service = MarketTopOrdersService(
                 topMarketsRepository,
                 App.currencyManager,
                 App.marketFavoritesManager,
                 topMarket ?: defaultTopMarket,
                 sortingField ?: defaultSortingField
             )
-            return MarketTopCoinsViewModel(
+            return MarketTopOrdersViewModel(
                 service,
                 marketField ?: defaultMarketField
             ) as T

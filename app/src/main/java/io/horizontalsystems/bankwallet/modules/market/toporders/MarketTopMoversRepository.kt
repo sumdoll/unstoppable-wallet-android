@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.market.topcoins
+package io.horizontalsystems.bankwallet.modules.market.toporders
 
 import io.horizontalsystems.bankwallet.core.managers.MarketKitWrapper
 import io.horizontalsystems.bankwallet.modules.market.MarketItem

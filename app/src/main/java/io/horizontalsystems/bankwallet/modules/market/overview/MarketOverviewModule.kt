@@ -9,7 +9,7 @@ import io.horizontalsystems.bankwallet.modules.market.MarketViewItem
 import io.horizontalsystems.bankwallet.modules.market.TimeDuration
 import io.horizontalsystems.bankwallet.modules.market.TopMarket
 import io.horizontalsystems.bankwallet.modules.market.search.MarketSearchModule.DiscoveryItem.Category
-import io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopMoversRepository
+import io.horizontalsystems.bankwallet.modules.market.toporders.MarketTopMoversRepository
 import io.horizontalsystems.bankwallet.ui.compose.Select
 import io.horizontalsystems.bankwallet.ui.extensions.MetricData
 import java.math.BigDecimal
