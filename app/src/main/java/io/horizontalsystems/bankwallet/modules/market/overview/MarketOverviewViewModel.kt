@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.managers.CurrencyManager
-import io.horizontalsystems.bankwallet.core.providers.Translator
 import io.horizontalsystems.bankwallet.core.subscribeIO
 import io.horizontalsystems.bankwallet.entities.CoinValue
 import io.horizontalsystems.bankwallet.entities.Currency
@@ -17,13 +16,6 @@ import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewMod
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.BoardHeader
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.MarketMetrics
 import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.MarketMetricsPoint
-import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.TopPlatformsBoard
-import io.horizontalsystems.bankwallet.modules.market.overview.MarketOverviewModule.TopSectorsBoard
-import io.horizontalsystems.bankwallet.modules.market.overview.TopSectorsRepository.Companion.getCategoryMarketData
-import io.horizontalsystems.bankwallet.modules.market.search.MarketSearchModule.DiscoveryItem.Category
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformItem
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformViewItem
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsRepository
 import io.horizontalsystems.bankwallet.modules.metricchart.MetricsType
 import io.horizontalsystems.bankwallet.ui.compose.Select
 import io.horizontalsystems.bankwallet.ui.extensions.MetricData
@@ -117,57 +109,14 @@ class MarketOverviewViewModel(
         topMovers: TopMovers,
         marketOverview: MarketOverview
     ): MarketOverviewModule.ViewItem {
-        val topPlatformItems = TopPlatformsRepository.getTopPlatformItems(marketOverview.topPlatforms, topPlatformsTimeDuration)
-        val coinCategoryItems = marketOverview.coinCategories.map { category ->
-            Category(category, getCategoryMarketData(category, baseCurrency))
-        }
-
-        val timePeriod = when(topNftsTimeDuration) {
-            TimeDuration.OneDay -> HsTimePeriod.Day1
-            TimeDuration.SevenDay -> HsTimePeriod.Week1
-            TimeDuration.ThirtyDay -> HsTimePeriod.Month1
-        }
-
         val topGainersBoard = getBoard(ListType.TopGainers, topMovers)
         val topLosersBoard = getBoard(ListType.TopLosers, topMovers)
 
         return MarketOverviewModule.ViewItem(
             getMarketMetrics(marketOverview.globalMarketPoints, baseCurrency),
             listOf(topGainersBoard, topLosersBoard)
-//            topSectorsBoard(coinCategoryItems),
-//            topPlatformsBoard(topPlatformItems)
         )
     }
-
-    private fun topSectorsBoard(items: List<Category>) =
-        TopSectorsBoard(
-            title = R.string.Market_Overview_TopSectors,
-            iconRes = R.drawable.ic_categories_20,
-            items = items
-        )
-
-    private fun topPlatformsBoard(items: List<TopPlatformItem>) =
-        TopPlatformsBoard(
-            title = R.string.MarketTopPlatforms_Title,
-            iconRes = R.drawable.ic_blocks_20,
-            timeDurationSelect = Select(
-                topPlatformsTimeDuration,
-                service.timeDurationOptions
-            ),
-            items = items.map { item ->
-                TopPlatformViewItem(
-                    platform = item.platform,
-                    subtitle = Translator.getString(
-                        R.string.MarketTopPlatforms_Protocols,
-                        item.protocols
-                    ),
-                    marketCap = formatFiatShortened(item.marketCap, baseCurrency.symbol),
-                    marketCapDiff = item.changeDiff,
-                    rank = item.rank.toString(),
-                    rankDiff = item.rankDiff,
-                )
-            }
-        )
 
     private fun getBoard(type: ListType, topMovers: TopMovers): Board {
         val topMarket: TopMarket
@@ -232,24 +181,10 @@ class MarketOverviewViewModel(
             tvlDiff = diff(startingPoint.tvl, tvl)
         }
 
-        val totalMarketCapPoints = globalMarketPoints.map { MarketMetricsPoint(it.marketCap, it.timestamp) }
-        val volume24Points = globalMarketPoints.map { MarketMetricsPoint(it.volume24h, it.timestamp) }
         val defiMarketCapPoints = globalMarketPoints.map { MarketMetricsPoint(it.defiMarketCap, it.timestamp) }
         val defiTvlPoints = globalMarketPoints.map { MarketMetricsPoint(it.tvl, it.timestamp) }
 
         return MarketMetrics(
-//            totalMarketCap = MetricData(
-//                marketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
-//                marketCapDiff,
-//                getChartData(totalMarketCapPoints),
-//                MetricsType.TotalMarketCap
-//            ),
-//            volume24h = MetricData(
-//                volume24h?.let { formatFiatShortened(it, baseCurrency.symbol) },
-//                volume24hDiff,
-//                getChartData(volume24Points),
-//                MetricsType.Volume24h
-//            ),
             usdtPrice = MetricData(
                 defiMarketCap?.let { formatFiatShortened(it, baseCurrency.symbol) },
                 defiMarketCapDiff,

@@ -117,9 +117,6 @@
         android:id="@+id/aboutAppFragment"
         android:name="io.horizontalsystems.bankwallet.modules.settings.about.AboutFragment"/>
     <fragment
-        android:id="@+id/metricsPageFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.market.metricspage.MetricsPageFragment" />
-    <fragment
         android:id="@+id/coinFragment"
         android:name="io.horizontalsystems.bankwallet.modules.coin.CoinFragment" >
         <deepLink
@@ -185,9 +182,6 @@
         android:id="@+id/marketSearchFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.search.MarketSearchFragment"/>
     <fragment
-        android:id="@+id/marketTopPlatformsFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsFragment"/>
-    <fragment
         android:id="@+id/marketPlatformFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.platform.MarketPlatformFragment">
         <deepLink
@@ -203,8 +197,6 @@
     <fragment
         android:id="@+id/marketTopCoinsFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopCoinsFragment"/>
-        android:id="@+id/marketCategoryFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.market.category.MarketCategoryFragment"/>
     <fragment
         android:id="@+id/marketAdvancedSearchResultsFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.filtersresult.MarketFiltersResultsFragment"/>

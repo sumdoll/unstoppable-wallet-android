@@ -35,7 +35,6 @@ import io.horizontalsystems.bankwallet.modules.coin.CoinFragment
 import io.horizontalsystems.bankwallet.modules.coin.overview.ui.Loading
 import io.horizontalsystems.bankwallet.modules.market.MarketDataValue
 import io.horizontalsystems.bankwallet.modules.market.TimeDuration
-import io.horizontalsystems.bankwallet.modules.market.category.MarketCategoryFragment
 import io.horizontalsystems.bankwallet.modules.market.search.MarketSearchModule.CoinItem
 import io.horizontalsystems.bankwallet.ui.compose.ColoredTextStyle
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
@@ -109,15 +108,8 @@ fun MarketSearchScreen(
                                     onCategoryClick = { viewItemType ->
                                         when (viewItemType) {
                                             MarketSearchModule.DiscoveryItem.TopCoins -> {
-                                                navController.slideFromBottom(
-                                                    R.id.marketTopCoinsFragment
-                                                )
                                             }
                                             is MarketSearchModule.DiscoveryItem.Category -> {
-//                                                navController.slideFromBottom(
-//                                                    R.id.marketCategoryFragment,
-//                                                    bundleOf(MarketCategoryFragment.categoryKey to viewItemType.coinCategory)
-//                                                )
                                             }
                                         }
                                     }

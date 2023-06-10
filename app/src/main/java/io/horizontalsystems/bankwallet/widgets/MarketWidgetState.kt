@@ -26,8 +26,7 @@ data class MarketWidgetState(
 
 enum class MarketWidgetType(val title: Int, val id: String) {
     Watchlist(R.string.Market_Tab_Watchlist, "watchlist"),
-    TopGainers(R.string.RateList_TopSales, "topGainers"),
-    TopPlatforms(R.string.MarketTopPlatforms_Title, "topPlatforms");
+    TopGainers(R.string.RateList_TopSales, "topGainers");
 
     companion object {
         val map = values().associateBy(MarketWidgetType::id)

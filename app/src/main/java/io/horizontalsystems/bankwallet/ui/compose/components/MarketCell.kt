@@ -16,7 +16,7 @@ import io.horizontalsystems.bankwallet.modules.market.MarketDataValue
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 
 @Composable
-fun MarketCoinClear(
+fun MarketBoardOrder(
     markerName: String,
     headerIconUrl: String,
     headerIconPlaceholder: Int,

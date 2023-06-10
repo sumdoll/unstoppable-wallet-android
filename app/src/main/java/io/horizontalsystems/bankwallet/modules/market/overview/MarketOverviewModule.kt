@@ -10,7 +10,6 @@ import io.horizontalsystems.bankwallet.modules.market.TimeDuration
 import io.horizontalsystems.bankwallet.modules.market.TopMarket
 import io.horizontalsystems.bankwallet.modules.market.search.MarketSearchModule.DiscoveryItem.Category
 import io.horizontalsystems.bankwallet.modules.market.topcoins.MarketTopMoversRepository
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformViewItem
 import io.horizontalsystems.bankwallet.ui.compose.Select
 import io.horizontalsystems.bankwallet.ui.extensions.MetricData
 import java.math.BigDecimal
@@ -69,13 +68,6 @@ object MarketOverviewModule {
         val title: Int,
         val iconRes: Int,
         val items: List<Category>
-    )
-
-    data class TopPlatformsBoard(
-        val title: Int,
-        val iconRes: Int,
-        val timeDurationSelect: Select<TimeDuration>,
-        val items: List<TopPlatformViewItem>
     )
 
 }

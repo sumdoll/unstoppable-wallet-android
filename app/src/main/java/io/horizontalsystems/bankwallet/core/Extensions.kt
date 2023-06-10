@@ -14,7 +14,6 @@ import coil.load
 import com.google.accompanist.navigation.animation.composable
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.modules.market.ImageSource
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.Platform
 import io.horizontalsystems.ethereumkit.core.toRawHexString
 import io.horizontalsystems.hdwalletkit.Language
 import io.horizontalsystems.hodler.LockTimeInterval
@@ -31,9 +30,6 @@ val <T> Optional<T>.orNull: T?
         isPresent -> get()
         else -> null
     }
-
-val Platform.iconUrl: String
-    get() = "https://cdn.blocksdecoded.com/blockchain-icons/32px/$uid@3x.png"
 
 val CoinCategory.imageUrl: String
     get() = "https://cdn.blocksdecoded.com/category-icons/$uid@3x.png"

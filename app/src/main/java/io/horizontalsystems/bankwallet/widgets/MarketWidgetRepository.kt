@@ -1,16 +1,12 @@
 package io.horizontalsystems.bankwallet.widgets
 
-import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.App
-import io.horizontalsystems.bankwallet.core.iconUrl
 import io.horizontalsystems.bankwallet.core.imageUrl
 import io.horizontalsystems.bankwallet.core.managers.CurrencyManager
 import io.horizontalsystems.bankwallet.core.managers.MarketFavoritesManager
 import io.horizontalsystems.bankwallet.core.managers.MarketKitWrapper
-import io.horizontalsystems.bankwallet.core.providers.Translator
 import io.horizontalsystems.bankwallet.modules.market.*
 import io.horizontalsystems.bankwallet.modules.market.favorites.MarketFavoritesMenuService
-import io.horizontalsystems.bankwallet.modules.market.topplatforms.TopPlatformsRepository
 import kotlinx.coroutines.rx2.await
 import java.math.BigDecimal
 
@@ -18,7 +14,6 @@ class MarketWidgetRepository(
     private val marketKit: MarketKitWrapper,
     private val favoritesManager: MarketFavoritesManager,
     private val favoritesMenuService: MarketFavoritesMenuService,
-    private val topPlatformsRepository: TopPlatformsRepository,
     private val currencyManager: CurrencyManager
 ) {
     companion object {
@@ -37,37 +32,7 @@ class MarketWidgetRepository(
             MarketWidgetType.TopGainers -> {
                 getTopGainers()
             }
-            MarketWidgetType.TopPlatforms -> {
-                getTopPlatforms()
-            }
         }
-
-    private suspend fun getTopPlatforms(): List<MarketWidgetItem> {
-        val platformItems = topPlatformsRepository.get(
-            sortingField = SortingField.TopSales,
-            timeDuration = TimeDuration.OneDay,
-            forceRefresh = true,
-            limit = itemsLimit
-        )
-        return platformItems.map { item ->
-            MarketWidgetItem(
-                uid = item.platform.uid,
-                title = item.platform.name,
-                subtitle = Translator.getString(R.string.MarketTopPlatforms_Protocols, item.protocols),
-                label = item.rank.toString(),
-                value = App.numberFormatter.formatFiatShort(
-                    item.marketCap,
-                    currency.symbol,
-                    2
-                ),
-                diff = item.changeDiff,
-                marketCap = null,
-                volume = null,
-                blockchainTypeUid = null,
-                imageRemoteUrl = item.platform.iconUrl
-            )
-        }
-    }
 
     private suspend fun getTopGainers(): List<MarketWidgetItem> {
         val marketItems = marketKit.marketInfosSingle(topGainers, currency.code)

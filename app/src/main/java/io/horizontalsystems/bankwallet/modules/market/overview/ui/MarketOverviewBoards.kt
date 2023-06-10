@@ -114,7 +114,7 @@ private fun MarketCoinWithBackground(
 ) {
     val limits = intArrayOf(1234, 4567, 5000, 10000)
     val pays = intArrayOf(1, 2)
-    MarketCoinClear(
+    MarketBoardOrder(
         marketViewItem.coinName,
         marketViewItem.coinCode,
         marketViewItem.iconPlaceHolder,
