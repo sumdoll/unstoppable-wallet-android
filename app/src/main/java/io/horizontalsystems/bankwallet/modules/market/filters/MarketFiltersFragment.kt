@@ -127,21 +127,21 @@ private fun AdvancedSearchScreen(
                         )
                     }
 
-                    ButtonsGroupWithShade {
-                        ButtonPrimaryYellowWithSpinner(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp),
-                            title = viewModel.buttonTitle,
-                            onClick = {
-                                navController.slideFromRight(
-                                    R.id.marketAdvancedSearchResultsFragment
-                                )
-                            },
-                            showSpinner = viewModel.showSpinner,
-                            enabled = viewModel.buttonEnabled,
-                        )
-                    }
+//                    ButtonsGroupWithShade {
+//                        ButtonPrimaryYellowWithSpinner(
+//                            modifier = Modifier
+//                                .fillMaxWidth()
+//                                .padding(horizontal = 16.dp),
+//                            title = viewModel.buttonTitle,
+//                            onClick = {
+//                                navController.slideFromRight(
+//                                    R.id.marketAdvancedSearchResultsFragment
+//                                )
+//                            },
+//                            showSpinner = viewModel.showSpinner,
+//                            enabled = viewModel.buttonEnabled,
+//                        )
+//                    }
                 }
             }
         }

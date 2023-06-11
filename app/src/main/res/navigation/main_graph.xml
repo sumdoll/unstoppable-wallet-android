@@ -182,13 +182,6 @@
         android:id="@+id/marketSearchFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.search.MarketSearchFragment"/>
     <fragment
-        android:id="@+id/marketPlatformFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.market.platform.MarketPlatformFragment">
-        <deepLink
-            app:action="android.intent.action.VIEW"
-            app:uri="unstoppable://top-platforms?uid={platformUid}&amp;title={platformName}" />
-    </fragment>
-    <fragment
         android:id="@+id/marketAdvancedSearchFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.filters.MarketFiltersFragment"/>
     <fragment
@@ -197,9 +190,6 @@
     <fragment
         android:id="@+id/marketTopCoinsFragment"
         android:name="io.horizontalsystems.bankwallet.modules.market.toporders.MarketTopOrdersFragment"/>
-    <fragment
-        android:id="@+id/marketAdvancedSearchResultsFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.market.filtersresult.MarketFiltersResultsFragment"/>
     <fragment
         android:id="@+id/createAccountAdvancedFragment"
         android:name="io.horizontalsystems.bankwallet.modules.createaccount.CreateAccountAdvancedFragment" />
