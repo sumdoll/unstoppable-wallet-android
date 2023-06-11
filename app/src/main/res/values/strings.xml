@@ -232,6 +232,7 @@
     <string name="Order_Payway_Bank">Bank</string>
     <string name="Order_Payway_Ali">AliPay</string>
     <string name="Order_Payway_We">WePay</string>
+    <string name="Order_Pay_Switch">Switch payment</string>
     <string name="Order_Pay_Payee">Payee</string>
     <string name="Order_Pay_BankID">Bankcard ID</string>
     <string name="Order_Pay_BankName">Bank name</string>

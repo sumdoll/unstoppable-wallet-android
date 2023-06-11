@@ -171,6 +171,7 @@ private fun BottomSheetContent(
                 onClose = onClose
             )
         }
+
         MarketCap -> {
             SingleSelectBottomSheetContent(
                 title = R.string.Market_Filter_MarketCap,
@@ -183,6 +184,7 @@ private fun BottomSheetContent(
                 onClose = onClose
             )
         }
+
         TradingVolume -> {
             SingleSelectBottomSheetContent(
                 title = R.string.Market_Filter_Volume24h,
@@ -195,6 +197,7 @@ private fun BottomSheetContent(
                 onClose = onClose
             )
         }
+
         PriceChange -> {
             SingleSelectBottomSheetContent(
                 title = R.string.Market_Filter_PriceChange,
@@ -207,6 +210,7 @@ private fun BottomSheetContent(
                 onClose = onClose
             )
         }
+
         PricePeriod -> {
             SingleSelectBottomSheetContent(
                 title = R.string.Market_Filter_PricePeriod,
@@ -400,16 +404,19 @@ private fun FilterMenu(title: String?, valueColor: TextColor, onClick: () -> Uni
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
+
             TextColor.Remus -> body_remus(
                 text = valueText,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
+
             TextColor.Lucian -> body_lucian(
                 text = valueText,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
+
             TextColor.Leah -> body_leah(
                 text = valueText,
                 overflow = TextOverflow.Ellipsis,

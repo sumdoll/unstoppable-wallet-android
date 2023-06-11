@@ -89,6 +89,20 @@ fun PayImage(
 }
 
 @Composable
+fun NormalImage(
+    img: Int,
+    modifier: Modifier,
+    colorFilter: ColorFilter? = null
+) {
+    Image(
+        painter = painterResource(img),
+        contentDescription = null,
+        modifier = modifier,
+        colorFilter = colorFilter
+    )
+}
+
+@Composable
 fun LevelImage(
     iconPlace: Int,
     modifier: Modifier,

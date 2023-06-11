@@ -202,6 +202,7 @@
     <string name="Order_Payway_Bank">银行卡</string>
     <string name="Order_Payway_Ali">支付宝</string>
     <string name="Order_Payway_We">微信</string>
+    <string name="Order_Pay_Switch">切换支付方式</string>
     <string name="Order_Pay_Payee">收款人</string>
     <string name="Order_Pay_BankID">银行卡号</string>
     <string name="Order_Pay_BankName">开户银行</string>
