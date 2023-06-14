@@ -177,7 +177,7 @@
     <string name="Order_TitleSale">出售USDT</string>
     <string name="Order_Cancel">取消订单</string>
     <string name="Order_StatusDone">交易完成</string>
-    <string name="Order_StatusCancel">订单取消</string>
+    <string name="Order_StatusCancel">交易取消</string>
     <string name="Order_AppealDoing">申诉中</string>
     <string name="Order_AppealSuccess">申诉成功</string>
     <string name="Order_AppealFailed">申诉失败</string>

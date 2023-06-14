@@ -72,7 +72,7 @@ enum class OrderStage{
 }
 
 enum class OrderState{
-    Canceled, Done, Appealing, AppealSuccess, AppealFail
+    Canceled, Runing, Done, Appealing, AppealSuccess, AppealFail
 }
 
 enum class OrderAction{
