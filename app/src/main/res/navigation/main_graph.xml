@@ -289,4 +289,12 @@
     <dialog
         android:id="@+id/configuredTokenInfo"
         android:name="io.horizontalsystems.bankwallet.modules.configuredtoken.ConfiguredTokenInfoDialog" />
+
+    <fragment
+            android:id="@+id/orderFragment"
+            android:name="io.horizontalsystems.bankwallet.arcticfish.modules.order.OrderFragment" >
+        <deepLink
+                app:action="android.intent.action.VIEW"
+                app:uri="unstoppable://order-page?uid={orderUid}" />
+    </fragment>
 </navigation>

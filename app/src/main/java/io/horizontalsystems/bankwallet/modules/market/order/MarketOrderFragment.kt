@@ -6,22 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -30,14 +22,11 @@ import io.horizontalsystems.bankwallet.core.*
 import io.horizontalsystems.bankwallet.entities.ViewState
 import io.horizontalsystems.bankwallet.modules.coin.overview.ui.Loading
 import io.horizontalsystems.bankwallet.modules.market.MarketDataValue
-import io.horizontalsystems.bankwallet.modules.market.TimeDuration
+import io.horizontalsystems.bankwallet.arcticfish.modules.order.ui.OrderContent
+import io.horizontalsystems.bankwallet.arcticfish.modules.order.ui.OrderTitle
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
-import io.horizontalsystems.bankwallet.ui.compose.Select
 import io.horizontalsystems.bankwallet.ui.compose.components.*
-import io.horizontalsystems.bankwallet.ui.helpers.TextHelper
 import io.horizontalsystems.core.findNavController
-import io.horizontalsystems.core.helpers.HudHelper
-import io.horizontalsystems.marketkit.models.Coin
 
 class MarketOrderFragment : BaseFragment() {
 
@@ -77,6 +66,36 @@ fun MarketOrderScreen(
 
     var title : String = if (orderType == 1) stringResource(R.string.Order_TitleBuy)
                 else stringResource(R.string.Order_TitleSale)
+
+    // TODO: 参考 SendBtcAdvancedSettingsScreen  实现从下弹对话框，风格
+//    ComposeAppTheme {
+//        ModalBottomSheetLayout(
+//            sheetState = modalBottomSheetState,
+//            sheetBackgroundColor = ComposeAppTheme.colors.transparent,
+//            sheetContent = {
+//                BottomSheetTransactionOrderSelector(
+//                    items = viewModel.uiState.transactionSortOptions,
+//                    onSelect = { mode ->
+//                        viewModel.setTransactionMode(mode)
+//                    },
+//                    onCloseClick = {
+//                        coroutineScope.launch {
+//                            modalBottomSheetState.hide()
+//                        }
+//                    }
+//                )
+//            },
+//        ) {
+
+//    TransactionDataSortSettings(
+//        navController,
+//        viewModel.uiState.transactionSortTitle,
+//    ) {
+//        coroutineScope.launch {
+//            modalBottomSheetState.show()
+//        }
+//    }
+
     ComposeAppTheme {
         Column(modifier = Modifier.background(color = ComposeAppTheme.colors.tyler)) {
             OrderTitle(

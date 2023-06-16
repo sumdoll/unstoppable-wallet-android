@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.coin.overview
+package io.horizontalsystems.bankwallet.arcticfish.modules.order
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,20 +7,19 @@ import io.horizontalsystems.bankwallet.entities.ConfiguredToken
 import io.horizontalsystems.bankwallet.modules.chart.ChartCurrencyValueFormatterSignificant
 import io.horizontalsystems.bankwallet.modules.chart.ChartModule
 import io.horizontalsystems.bankwallet.modules.chart.ChartViewModel
-import io.horizontalsystems.bankwallet.modules.coin.*
 import io.horizontalsystems.marketkit.models.FullCoin
 import io.horizontalsystems.marketkit.models.MarketInfoOverview
 
-object CoinOverviewModule {
+object OrderOverviewModule {
 
     class Factory(private val fullCoin: FullCoin) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
             return when (modelClass) {
-                CoinOverviewViewModel::class.java -> {
+                OrderOverviewViewModel::class.java -> {
                     val currency = App.currencyManager.baseCurrency
-                    val service = CoinOverviewService(
+                    val service = OrderOverviewService(
                         fullCoin,
                         App.marketKit,
                         App.currencyManager,
@@ -28,15 +27,15 @@ object CoinOverviewModule {
                         App.languageManager
                     )
 
-                    CoinOverviewViewModel(
+                    OrderOverviewViewModel(
                         service,
-                        CoinViewFactory(currency, App.numberFormatter),
+                        OrderViewFactory(currency, App.numberFormatter),
                         App.walletManager,
                         App.accountManager
                     ) as T
                 }
                 ChartViewModel::class.java -> {
-                    val chartService = CoinOverviewChartService(App.marketKit, App.currencyManager, fullCoin.coin.uid)
+                    val chartService = OrderOverviewChartService(App.marketKit, App.currencyManager, fullCoin.coin.uid)
                     val chartNumberFormatter = ChartCurrencyValueFormatterSignificant()
                     ChartModule.createViewModel(chartService, chartNumberFormatter) as T
                 }
@@ -47,13 +46,13 @@ object CoinOverviewModule {
     }
 }
 
-data class CoinOverviewItem(
+data class OrderOverviewItem(
     val coinCode: String,
     val marketInfoOverview: MarketInfoOverview,
     val guideUrl: String?,
 )
 
-data class TokenVariant(
+data class OrderVariant(
     val value: String,
     val copyValue: String?,
     val imgUrl: String,
@@ -65,7 +64,7 @@ data class TokenVariant(
 ) {
 }
 
-data class CoinOverviewViewItem(
+data class OrderOverviewViewItem(
     val roi: List<RoiViewItem>,
     val categories: List<String>,
     val links: List<CoinLink>,

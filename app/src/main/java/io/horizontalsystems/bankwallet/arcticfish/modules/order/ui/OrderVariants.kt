@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.coin.overview.ui
+package io.horizontalsystems.bankwallet.arcticfish.modules.order.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -13,26 +13,26 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.entities.ConfiguredToken
-import io.horizontalsystems.bankwallet.modules.coin.overview.TokenVariants
+import io.horizontalsystems.bankwallet.arcticfish.modules.order.OrderVariants
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.components.*
 
 @Composable
-fun TokenVariants(
-    tokenVariants: TokenVariants,
+fun OrderVariants(
+    orderVariants: OrderVariants,
     onClickAddToWallet: (ConfiguredToken) -> Unit,
     onClickCopy: (String) -> Unit,
     onClickExplorer: (String) -> Unit,
 ) {
     Column {
         CellSingleLineClear(borderTop = true) {
-            body_leah(text = stringResource(id = tokenVariants.type.titleResId))
+            body_leah(text = stringResource(id = orderVariants.type.titleResId))
         }
 
         CellUniversalLawrenceSection(
-            items = tokenVariants.items,
+            items = orderVariants.items,
             limit = 3
-        ) { tokenVariant ->
+        ) { orderVariant ->
             RowUniversal(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -41,7 +41,7 @@ fun TokenVariants(
                 Image(
                     modifier = Modifier.size(32.dp),
                     painter = rememberAsyncImagePainter(
-                        model = tokenVariant.imgUrl,
+                        model = orderVariant.imgUrl,
                         error = painterResource(R.drawable.ic_platform_placeholder_32)
                     ),
                     contentDescription = "platform"
@@ -51,7 +51,7 @@ fun TokenVariants(
                         .weight(1f)
                         .padding(horizontal = 16.dp)
                 ) {
-                    tokenVariant.name?.let {
+                    orderVariant.name?.let {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically
@@ -68,18 +68,18 @@ fun TokenVariants(
                     subhead2_grey(
                         modifier = Modifier
                             .clickable(
-                                enabled = tokenVariant.copyValue != null,
+                                enabled = orderVariant.copyValue != null,
                                 onClick = {
-                                    onClickCopy.invoke(tokenVariant.copyValue ?: "")
+                                    onClickCopy.invoke(orderVariant.copyValue ?: "")
                                 }
                             ),
-                        text = tokenVariant.value,
+                        text = orderVariant.value,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
-                if (tokenVariant.canAddToWallet) {
-                    if (tokenVariant.inWallet) {
+                if (orderVariant.canAddToWallet) {
+                    if (orderVariant.inWallet) {
                         ButtonSecondaryCircle(
                             icon = R.drawable.ic_in_wallet_dark_24,
                             contentDescription = stringResource(R.string.CoinPage_InWallet),
@@ -94,13 +94,13 @@ fun TokenVariants(
                             icon = R.drawable.ic_add_to_wallet_2_24,
                             contentDescription = stringResource(R.string.CoinPage_AddToWallet),
                             onClick = {
-                                onClickAddToWallet.invoke(tokenVariant.configuredToken)
+                                onClickAddToWallet.invoke(orderVariant.configuredToken)
                             }
                         )
                     }
 
                 }
-                tokenVariant.explorerUrl?.let { explorerUrl ->
+                orderVariant.explorerUrl?.let { explorerUrl ->
                     ButtonSecondaryCircle(
                         modifier = Modifier.padding(start = 16.dp),
                         icon = R.drawable.ic_globe_20,

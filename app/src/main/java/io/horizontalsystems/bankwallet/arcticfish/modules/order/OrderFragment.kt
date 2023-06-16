@@ -1,4 +1,4 @@
-package io.horizontalsystems.bankwallet.modules.coin
+package io.horizontalsystems.bankwallet.arcticfish.modules.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
 import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
@@ -29,7 +28,7 @@ import io.horizontalsystems.bankwallet.ui.compose.TranslatableString
 import io.horizontalsystems.bankwallet.ui.compose.components.*
 import io.horizontalsystems.core.helpers.HudHelper
 
-class CoinFragment : BaseFragment() {
+class OrderFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,24 +46,23 @@ class CoinFragment : BaseFragment() {
                     null
                 }
 
-                val coinUid = requireArguments().getString(COIN_UID_KEY, uid ?: "")
+                val orderUid = requireArguments().getString(ORDER_UID_KEY, uid ?: "")
                 if (uid != null) {
                     activity?.intent?.data = null
                 }
 
-                CoinScreen(
-                    coinUid,
-                    coinViewModel(coinUid),
-                    findNavController(),
-                    childFragmentManager
+                OrderScreen(
+                    orderUid,
+                    coinViewModel(orderUid),
+                    findNavController()
                 )
             }
         }
     }
 
-    private fun coinViewModel(coinUid: String): CoinViewModel? = try {
-        val viewModel by navGraphViewModels<CoinViewModel>(R.id.coinFragment) {
-            CoinModule.Factory(coinUid)
+    private fun coinViewModel(coinUid: String): OrderViewModel? = try {
+        val viewModel by navGraphViewModels<OrderViewModel>(R.id.orderFragment) {
+            OrderModule.Factory(coinUid)
         }
         viewModel
     } catch (e: Exception) {
@@ -72,34 +70,32 @@ class CoinFragment : BaseFragment() {
     }
 
     companion object {
-        private const val COIN_UID_KEY = "coin_uid_key"
+        private const val ORDER_UID_KEY = "order_uid_key"
 
-        fun prepareParams(coinUid: String) = bundleOf(COIN_UID_KEY to coinUid)
+        fun prepareParams(coinUid: String) = bundleOf(ORDER_UID_KEY to coinUid)
     }
 }
 
 @Composable
-fun CoinScreen(
-    coinUid: String,
-    coinViewModel: CoinViewModel?,
-    navController: NavController,
-    fragmentManager: FragmentManager
+fun OrderScreen(
+    orderUid: String,
+    orderViewModel: OrderViewModel?,
+    navController: NavController
 ) {
     ComposeAppTheme {
-        if (coinViewModel != null) {
-            CoinTabs(coinViewModel, navController, fragmentManager)
+        if (orderViewModel != null) {
+            OrderDetails(orderViewModel, navController)
         } else {
-            CoinNotFound(coinUid, navController)
+            OrderNotFound(orderUid, navController)
         }
     }
 }
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun CoinTabs(
-    viewModel: CoinViewModel,
-    navController: NavController,
-    fragmentManager: FragmentManager
+fun OrderDetails(
+    viewModel: OrderViewModel,
+    navController: NavController
 ) {
     val pagerState = rememberPagerState(initialPage = 0)
     val coroutineScope = rememberCoroutineScope()
@@ -155,17 +151,17 @@ fun CoinTabs(
 }
 
 @Composable
-fun CoinNotFound(coinUid: String, navController: NavController) {
+fun OrderNotFound(orderUid: String, navController: NavController) {
     Column(modifier = Modifier.background(color = ComposeAppTheme.colors.tyler)) {
         AppBar(
-            title = TranslatableString.PlainString(coinUid),
+            title = TranslatableString.PlainString(orderUid),
             navigationIcon = {
                 HsBackButton(onClick = { navController.popBackStack() })
             }
         )
 
         ListEmptyView(
-            text = stringResource(R.string.CoinPage_CoinNotFound, coinUid),
+            text = stringResource(R.string.CoinPage_CoinNotFound, orderUid),
             icon = R.drawable.ic_not_available
         )
 

@@ -1,12 +1,14 @@
-package io.horizontalsystems.bankwallet.ui.compose.components
+package io.horizontalsystems.bankwallet.arcticfish.modules.order.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalView
@@ -17,12 +19,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.imageUrl
+import io.horizontalsystems.bankwallet.arcticfish.modules.order.SelectPayDialog
 import io.horizontalsystems.bankwallet.modules.market.order.*
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
+import io.horizontalsystems.bankwallet.ui.compose.components.*
 import io.horizontalsystems.bankwallet.ui.helpers.TextHelper
 import io.horizontalsystems.core.helpers.HudHelper
-import io.horizontalsystems.marketkit.models.Coin
 
 
 @Composable
@@ -481,10 +483,28 @@ fun OrderTipRow(type: OrderType) {
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun OrderPaymentRow(orderType: OrderType, payType: OrderPayment) {
     val interactionSource = remember { MutableInteractionSource() }
+    var showPays by remember { mutableStateOf(false) }
 
+    val modalBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+
+    val onClickSwitch: (() -> Unit) = {
+        showPays = true
+    }
+
+    if (showPays) {
+        SelectPayDialog(
+            onSuccess = {
+                showPays = false
+            },
+            onError = {
+                showPays = false
+            }
+        )
+    }
     var payName = R.string.Order_Payway_Bank
     var idName = R.string.Order_Pay_BankID
     var payImg = R.string.Order_Pay_BankName
@@ -505,63 +525,97 @@ fun OrderPaymentRow(orderType: OrderType, payType: OrderPayment) {
 
     Column {
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            PayImage(
-                iconPlace = payTag,
-                modifier = Modifier
-                    .padding(10.dp)
-                    .size(40.dp)
-            )
-            headline2_leah(
-                text = stringResource(payName),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.weight(1f)
-            )
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically
+//        ) {
+//            PayImage(
+//                iconPlace = payTag,
+//                modifier = Modifier
+//                    .padding(10.dp)
+//                    .size(40.dp)
+//            )
+//            headline2_leah(
+//                text = stringResource(payName),
+//                maxLines = 1,
+//                overflow = TextOverflow.Ellipsis,
+//                modifier = Modifier.weight(1f)
+//            )
+//
+//            if (orderType == OrderType.Buy) {
+//                Box(
+//                    modifier = Modifier.clickable(
+//                        interactionSource = interactionSource,
+//                        indication = null
+//                    ) {
+//                        // TODO: 切换支付方式
+//                        onClickSwitch.invoke()
+//                    }
+//                ) {
+//                    Row(
+//                        verticalAlignment = Alignment.CenterVertically
+//                    ) {
+//                        body_leah(
+//                            textAlign = TextAlign.Right,
+//                            text = stringResource(R.string.Order_Pay_Switch),
+//                            maxLines = 1,
+//                            overflow = TextOverflow.Ellipsis,
+//                        )
+//
+//                        NormalImage(
+//                            img = R.drawable.ic_down_arrow_20,
+//                            modifier = Modifier
+//                                .padding(end = 10.dp)
+//                                .size(24.dp)
+//                        )
+//                    }
+//                }
+//            }
+//        }
 
-            if (orderType == OrderType.Buy) {
-                Box(
-                    modifier = Modifier.clickable(
-                        interactionSource = interactionSource,
-                        indication = null
-                    ) {
-                        // TODO: 切换支付方式
-//                        onRightCancelClick.invoke()
-                    }
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        body_leah(
-                            textAlign = TextAlign.Right,
-                            text = stringResource(R.string.Order_Pay_Switch),
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-
-                        NormalImage(
-                            img = R.drawable.ic_arrow_right,
-                            modifier = Modifier
-                                .padding(end = 10.dp)
-                                .size(24.dp)
-                        )
-                    }
+        CellUniversalLawrenceSection(
+            listOf ({
+                RowUniversal() {
+                    PayImage(
+                        iconPlace = payTag,
+                        modifier = Modifier
+                            .padding(10.dp)
+                            .size(40.dp)
+                    )
+                    body_leah(
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .weight(1f),
+                        text = stringResource(payName)
+                    )
+                    ButtonSecondaryWithIcon(
+                        modifier = Modifier
+                            .padding(end = 16.dp)
+                            .height(28.dp),
+                        title = stringResource(R.string.Order_Pay_Switch),
+                        iconRight = painterResource(R.drawable.ic_down_arrow_20),
+                        onClick = onClickSwitch
+                    )
                 }
-            }
-        }
-        Spacer(modifier = Modifier.height(6.dp))
-        CopyRow(stringResource(R.string.Order_Pay_Payee), "收款名字", false)
-        Spacer(modifier = Modifier.height(6.dp))
-        CopyRow(stringResource(idName), "12345678901243", false)
-        Spacer(modifier = Modifier.height(6.dp))
-        CopyRow(stringResource(payImg), "收款名字", true)
+            }, {
+                CopyRow(stringResource(R.string.Order_Pay_Payee), "收款名字", false)
+            }, {
+                CopyRow(stringResource(idName), "12345678901243", false)
+            }, {
+                CopyRow(stringResource(payImg), "收款名字", true)
+            })
+        )
+
+//        Spacer(modifier = Modifier.height(6.dp))
+//        CopyRow(stringResource(R.string.Order_Pay_Payee), "收款名字", false)
+//        Spacer(modifier = Modifier.height(6.dp))
+//        CopyRow(stringResource(idName), "12345678901243", false)
+//        Spacer(modifier = Modifier.height(6.dp))
+//        CopyRow(stringResource(payImg), "收款名字", true)
 
         if (orderType == OrderType.Buy) {
             Spacer(modifier = Modifier.height(6.dp))
 
-            Row(
+            RowUniversal(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 body_leah(
@@ -585,7 +639,7 @@ fun OrderPaymentRow(orderType: OrderType, payType: OrderPayment) {
 @Composable
 fun CopyRow(head: String, content: String, isQr: Boolean) {
     val view = LocalView.current
-    Row(
+    RowUniversal(
         verticalAlignment = Alignment.CenterVertically
     ) {
         body_leah(
