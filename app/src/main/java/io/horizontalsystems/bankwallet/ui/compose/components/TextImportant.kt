@@ -54,6 +54,25 @@ fun TextImportantError(
 }
 
 @Composable
+fun TextImportantLight(
+    modifier: Modifier = Modifier,
+    text: String,
+    title: String? = null,
+    @DrawableRes icon: Int? = null
+) {
+    TextImportant(
+        modifier = modifier,
+        text = text,
+        title = title,
+        icon = icon,
+        borderColor = ComposeAppTheme.colors.jacob,
+        backgroundColor = ComposeAppTheme.colors.greenL,
+        textColor = ComposeAppTheme.colors.jacob,
+        iconColor = ComposeAppTheme.colors.jacob
+    )
+}
+
+@Composable
 fun TextImportant(
     modifier: Modifier = Modifier,
     text: String,

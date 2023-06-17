@@ -178,9 +178,9 @@
     <string name="Order_Cancel">取消订单</string>
     <string name="Order_StatusDone">交易完成</string>
     <string name="Order_StatusCancel">交易取消</string>
-    <string name="Order_AppealDoing">申诉中</string>
-    <string name="Order_AppealSuccess">申诉成功</string>
-    <string name="Order_AppealFailed">申诉失败</string>
+    <string name="Order_AppealDoing">申述中</string>
+    <string name="Order_AppealSuccess">申述成功</string>
+    <string name="Order_AppealFailed">申述失败</string>
     <string name="Order_Reason_Paid">原因：买家已确认付款</string>
     <string name="Order_Reason_Canceled">原因：订单已取消</string>
     <string name="Order_Reason_FreeCoin">原因：已放币</string>
@@ -214,17 +214,17 @@
     <string name="Order_Tips_TimeNotify">请在规定时间内付款，超时自动取消订单。</string>
     <string name="Order_Tips_CancelNotify">若买家超时未操作，订单将自动取消。</string>
     <string name="Order_Tips_ConfirmCash">买家已确认待付款，请核实账户；若已收款请确认，超时将冻结资产。</string>
-    <string name="Order_Tips_FreezeTimeout">放币时间已超时，资产被冻结，如有疑问请申诉处理。</string>
+    <string name="Order_Tips_FreezeTimeout">放币时间已超时，资产被冻结，如有疑问请申述处理。</string>
     <string name="Order_Tips_BuyNotice">在转账过程中请勿备注USDT、BTC、虚拟币等信息，防止受到管控冻卡等问题，如已线下转款，请点击“%s”</string>
-    <string name="Order_Tips_AppealBuy">超过10分钟还为收到资产，请点击申诉提交问题（请真实反应情况，若发生违规，会受到处罚）</string>
-    <string name="Order_Tips_AppealSell">如果线下确实未收到款项，请点击申诉提交问题。（请真实反应情况，若发生违规，会受到处罚）</string>
+    <string name="Order_Tips_AppealBuy">超过10分钟还为收到资产，请点击申述提交问题（请真实反应情况，若发生违规，会受到处罚）</string>
+    <string name="Order_Tips_AppealSell">如果线下确实未收到款项，请点击申述提交问题。（请真实反应情况，若发生违规，会受到处罚）</string>
     <string name="Order_Tips_SellNotice">请留意以上收款方式，线下是否有对应金额到账，请再三确认后，再进行放币。</string>
     <string name="Order_Button_ConfirmOrder">确认订单</string>
     <string name="Order_Button_ConfirmPay">我已付款，请放币</string>
-    <string name="Order_Button_Appealing">申诉中（查看）</string>
-    <string name="Order_Button_Appealed">已申诉</string>
+    <string name="Order_Button_Appealing">申述中（查看）</string>
+    <string name="Order_Button_Appealed">已申述</string>
     <string name="Order_Button_ConfirmCash">已收款，确认放币</string>
-    <string name="Order_Button_Appeal">申诉</string>
+    <string name="Order_Button_Appeal">申述</string>
     <string name="Order_Button_Cancel">取消</string>
     <string name="Order_Dialog_ChoicePay">选择付款方式</string>
     <string name="Order_Dialog_CancelConfirm">确定取消订单</string>
@@ -249,6 +249,56 @@
     <string name="Order_Dialog_SurePaid">已收款，确认放币</string>
     <string name="Order_Dialog_Notice">警示注意</string>
     <string name="Order_Dialog_Notice_Notice">买家未操作“%s“，您确认要放币，如已确认以下方式收到款项，方可进行确认放币。</string>
+
+    <!--Appeal Page-->
+    <string name="Appeal_Title">订单申述</string>
+    <string name="Appeal_Cancel">取消申述</string>
+    <string name="Appeal_Stage_Submit">已提交</string>
+    <string name="Appeal_Stage_Plea">反述中</string>
+    <string name="Appeal_Stage_Scrutiny">审查中</string>
+    <string name="Appeal_Stage_Done">完成</string>
+    <string name="Appeal_Tip_SubmitNotice">提起订单申述后平台将介入本次交易，直至申述结束。（恶意申述着将冻结账户）</string>
+    <string name="Appeal_Tip_PleaNote">对方提交证明中（最大期限：%d天），请耐心等待</string>
+    <string name="Appeal_Tip_PleaScrutiny">平台审查中，（最大期限：%d天），请耐心等待</string>
+    <string name="Appeal_Tip_Done">结果：%s </string>
+    <string name="Appeal_Result_V">申述胜利</string>
+    <string name="Appeal_Result_F">申述失败</string>
+    <string name="Appeal_Type_Title">申述类型</string>
+    <string name="Appeal_Type_NoPay">对方确认但没付款</string>
+    <string name="Appeal_Type_NoFree">对方不放币</string>
+    <string name="Appeal_Des_Title">申述说明</string>
+    <string name="Appeal_Des_Tip">500字</string>
+    <string name="Appeal_Upload_Title">上传证明</string>
+    <string name="Appeal_Upload_Des">如收付款记录，银行流水，回执单等。(伪造证明将导致账号冻结)</string>
+    <string name="Appeal_Contact_Title">联系电话</string>
+    <string name="Appeal_Button_Submit">提交</string>
+    <string name="Appeal_Button_Cancel">取消申述</string>
+
+    <!--Pond Request Page-->
+    <string name="Pond_Title">塘主申请</string>
+    <string name="Pond_Note_NoSubmit">成为认证塘主，获得挂单做市交易特权</string>
+    <string name="Pond_Note_VideoTip">请按照以下要求录制视频上传</string>
+    <string name="Pond_Note_Submitted">已提交申请，等待审核</string>
+    <string name="Pond_Note_Passed">审核已通过</string>
+    <string name="Pond_Note_Resubmit">审核失败，请重新提交</string>
+    <string name="Pond_Terms_Title">需要条件</string>
+    <string name="Pond_Terms_Auth">完成实名认证</string>
+    <string name="Pond_Terms_Video">完成视频申请认证</string>
+    <string name="Pond_Terms_Deposit">须至少%s USDT作为保证金（可退回）</string>
+    <string name="Pond_Tips_Why">认证塘主领身份标识，提高交易的安全性和提升用户成交率</string>
+    <string name="Pond_Video_Title">身份认证</string>
+    <string name="Pond_Video_Head">手持身份证正面，同意并大声朗读以下申明：</string>
+    <string name="Pond_Video_Dec">我是xx ，我身份证号码是：xxxx ，
+        我自愿在极鱼注册与交易， \
+        并保证账户是本人使用，我保证所有资产来源合法，并了解交 \
+        易存在的风险，并愿自行承担，提取的数字资产不做非法使用，\
+        也不会用平台进行任何非法活动，例如洗钱，传销和非法兑换 \
+        外币等。</string>
+    <string name="Pond_Video_Upload">录制视频</string>
+    <string name="Pond_Button_Submit">立即申请</string>
+    <string name="Pond_Button_Auth">提交认证</string>
+    <string name="Pond_Button_Go">去提交</string>
+    <string name="Pond_Button_Finish">已完成</string>
 
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">前列行业</string>

@@ -280,6 +280,56 @@
     <string name="Order_Dialog_Notice">Attention</string>
     <string name="Order_Dialog_Notice_Notice">The buyer did not operate "%1", you confirm that you want to release coins, and if you have confirmed that you have received the money in the following ways, you can confirm the release of coins.</string>
 
+    <!--Appeal Page-->
+    <string name="Appeal_Title">Order Appeal</string>
+    <string name="Appeal_Cancel">Cancel</string>
+    <string name="Appeal_Stage_Submit">Submitted</string>
+    <string name="Appeal_Stage_Plea">Justification</string>
+    <string name="Appeal_Stage_Scrutiny">Under review</string>
+    <string name="Appeal_Stage_Done">Done</string>
+    <string name="Appeal_Tip_SubmitNotice">After initiating an order statement, the platform will intervene in this transaction until the end of the statement.(The malicious statement that the account will be frozen.)</string>
+    <string name="Appeal_Tip_PleaNote">The other party submits the certificate (maximum period: %d days), please be patient</string>
+    <string name="Appeal_Tip_PleaScrutiny">During the platform review, (maximum period: %d days), please be patient</string>
+    <string name="Appeal_Tip_Done">Result: %s </string>
+    <string name="Appeal_Result_V">victory</string>
+    <string name="Appeal_Result_F">failed</string>
+    <string name="Appeal_Type_Title">Claim type</string>
+    <string name="Appeal_Type_NoPay">No payment was received</string>
+    <string name="Appeal_Type_NoFree">No free coins</string>
+    <string name="Appeal_Des_Title">Description</string>
+    <string name="Appeal_Des_Tip">500 worlds</string>
+    <string name="Appeal_Upload_Title">Upload proof</string>
+    <string name="Appeal_Upload_Des">Such as receipt and payment records, bank statements, receipt slips .etc.(Forged proof will result in account suspension)</string>
+    <string name="Appeal_Contact_Title">Phone NO.</string>
+    <string name="Appeal_Button_Submit">Submit</string>
+    <string name="Appeal_Button_Cancel">Cancel</string>
+
+    <!--Pond Request Page-->
+    <string name="Pond_Title">Be a pond owner</string>
+    <string name="Pond_Note_NoSubmit">Become a certified owner and get the privilege of pending order market making</string>
+    <string name="Pond_Note_VideoTip">Please follow the requirements below to record video upload</string>
+    <string name="Pond_Note_Submitted">The application has been submitted and is awaiting review</string>
+    <string name="Pond_Note_Passed">The review passed</string>
+    <string name="Pond_Note_Resubmit">Failed, please re-submit.</string>
+    <string name="Pond_Terms_Title">Conditions are required</string>
+    <string name="Pond_Terms_Auth">Complete real-name authentication</string>
+    <string name="Pond_Terms_Video">Complete the video application for certification</string>
+    <string name="Pond_Terms_Deposit">At least %s USDT as margin (refundable)</string>
+    <string name="Pond_Tips_Why">Authenticate the identity of the owner of the pond to improve the security of transactions and increase the transaction rate of users</string>
+    <string name="Pond_Video_Title">Authentication</string>
+    <string name="Pond_Video_Head">Holding your ID card, read aloud the following statement:</string>
+    <string name="Pond_Video_Dec">I am xx , my ID number is: xxxx ,
+        I voluntarily register and trade with Polarfish,
+        And to ensure that the account is for my use, I guarantee that all assets are from legal sources, and understand the transaction
+        Easy to exist risk, and willing to bear their own responsibility, the extracted digital assets are not used illegally,
+        Nor will it use the platform for any illegal activities such as money laundering, pyramid schemes and illegal exchange
+        Foreign currency, etc.</string>
+    <string name="Pond_Video_Upload">Record video</string>
+    <string name="Pond_Button_Submit">Request Now</string>
+    <string name="Pond_Button_Auth">Submit</string>
+    <string name="Pond_Button_Go">Todo</string>
+    <string name="Pond_Button_Finish">Done</string>
+
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">Top Sectors</string>
 
