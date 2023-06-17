@@ -21,7 +21,7 @@ class OrderViewModel(
     val tabs = OrderModule.Tab.values()
     val fullCoin by service::fullCoin
 
-    val isWatchlistEnabled = localStorage.marketsTabEnabled
+    val isBuyCancelEnabled = localStorage.marketsTabEnabled
     var isFavorite by mutableStateOf<Boolean>(false)
         private set
     var successMessage by mutableStateOf<Int?>(null)
@@ -29,8 +29,8 @@ class OrderViewModel(
 
     init {
         viewModelScope.launch {
-            val isFavoriteFlow: Flow<Boolean> = service.isFavorite.asFlow()
-            isFavoriteFlow.collect {
+            val isCancelFlow: Flow<Boolean> = service.isCanceling.asFlow()
+            isCancelFlow.collect {
                 isFavorite = it
             }
         }
@@ -40,14 +40,9 @@ class OrderViewModel(
         clearables.forEach(Clearable::clear)
     }
 
-    fun onFavoriteClick() {
-        service.favorite()
+    fun onCancelClick() {
+        service.cancel()
         successMessage = R.string.Hud_Added_To_Watchlist
-    }
-
-    fun onUnfavoriteClick() {
-        service.unfavorite()
-        successMessage = R.string.Hud_Removed_from_Watchlist
     }
 
     fun onSuccessMessageShown() {

@@ -13,33 +13,28 @@ class OrderService(
     private val marketFavoritesManager: MarketFavoritesManager,
 ) : Clearable {
 
-    private val _isFavorite = BehaviorSubject.create<Boolean>()
-    val isFavorite: Observable<Boolean>
-        get() = _isFavorite
+    private val _doCancel = BehaviorSubject.create<Boolean>()
+    val isCanceling: Observable<Boolean>
+        get() = _doCancel
 
     private val disposables = CompositeDisposable()
 
     init {
-        emitIsFavorite()
+        // 初始化，定时获取订单当前阶段，状态等信息并更新UI
     }
 
     override fun clear() {
         disposables.clear()
     }
 
-    fun favorite() {
+    fun cancel() {
+        //TODO： 检测当前阶段，如果已经进入待支付状态，则向服务器请求取消订单。
         marketFavoritesManager.add(fullCoin.coin.uid)
 
-        emitIsFavorite()
+        emitCancelOrder()
     }
 
-    fun unfavorite() {
-        marketFavoritesManager.remove(fullCoin.coin.uid)
-
-        emitIsFavorite()
-    }
-
-    private fun emitIsFavorite() {
-        _isFavorite.onNext(marketFavoritesManager.isCoinInFavorites(fullCoin.coin.uid))
+    private fun emitCancelOrder() {
+        _doCancel.onNext(marketFavoritesManager.isCoinInFavorites(fullCoin.coin.uid))
     }
 }

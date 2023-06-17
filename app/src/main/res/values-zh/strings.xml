@@ -185,7 +185,7 @@
     <string name="Order_Reason_Canceled">原因：订单已取消</string>
     <string name="Order_Reason_FreeCoin">原因：已放币</string>
     <string name="Order_BuyerStage_WaitPay">待付款</string>
-    <string name="Order_BuyerStage_HavePay">已确认付款</string>
+    <string name="Order_BuyerStage_HavePay">已付款</string>
     <string name="Order_BuyerStage_WaitCoin">待放币</string>
     <string name="Order_SellerStage_WaitPay">等待买家付款</string>
     <string name="Order_SellerStage_ConfirmPay">买家已确认付款</string>
@@ -215,7 +215,7 @@
     <string name="Order_Tips_CancelNotify">若买家超时未操作，订单将自动取消。</string>
     <string name="Order_Tips_ConfirmCash">买家已确认待付款，请核实账户；若已收款请确认，超时将冻结资产。</string>
     <string name="Order_Tips_FreezeTimeout">放币时间已超时，资产被冻结，如有疑问请申诉处理。</string>
-    <string name="Order_Tips_BuyNotice">在转账过程中请勿备注USDT、BTC、虚拟币等信息，防止受到管控冻卡等问题，如已线下转款，请点击“%1”</string>
+    <string name="Order_Tips_BuyNotice">在转账过程中请勿备注USDT、BTC、虚拟币等信息，防止受到管控冻卡等问题，如已线下转款，请点击“%s”</string>
     <string name="Order_Tips_AppealBuy">超过10分钟还为收到资产，请点击申诉提交问题（请真实反应情况，若发生违规，会受到处罚）</string>
     <string name="Order_Tips_AppealSell">如果线下确实未收到款项，请点击申诉提交问题。（请真实反应情况，若发生违规，会受到处罚）</string>
     <string name="Order_Tips_SellNotice">请留意以上收款方式，线下是否有对应金额到账，请再三确认后，再进行放币。</string>
@@ -235,7 +235,7 @@
     <string name="Order_Dialog_CancelConfirm_IThink">我再想想</string>
     <string name="Order_Dialog_SaveCode">保存收款码</string>
     <string name="Order_Dialog_ConfirmPay">确认付款</string>
-    <string name="Order_Dialog_ConfirmPay_Notice">确认通过以下方式付款给对方，方可确认“%1” %2</string>
+    <string name="Order_Dialog_ConfirmPay_Notice">确认通过以下方式付款给对方，方可确认“%1$s” %2$s</string>
     <string name="Order_Dialog_ConfirmPay_SurePay">已付款，请放币</string>
     <string name="Order_Dialog_ConfirmPay_CashWay">付款方式</string>
     <string name="Order_Dialog_ConfirmPay_CashAmount">支付金额</string>
@@ -248,7 +248,7 @@
     <string name="Order_Dialog_CashWay">收款方式</string>
     <string name="Order_Dialog_SurePaid">已收款，确认放币</string>
     <string name="Order_Dialog_Notice">警示注意</string>
-    <string name="Order_Dialog_Notice_Notice">买家未操作“%1“，您确认要放币，如已确认以下方式收到款项，方可进行确认放币。</string>
+    <string name="Order_Dialog_Notice_Notice">买家未操作“%s“，您确认要放币，如已确认以下方式收到款项，方可进行确认放币。</string>
 
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">前列行业</string>

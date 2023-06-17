@@ -3,8 +3,6 @@ package io.horizontalsystems.bankwallet.arcticfish.modules.order.ui
 import android.content.Context
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,17 +19,11 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.iconPlaceholder
-import io.horizontalsystems.bankwallet.core.imageUrl
+import io.horizontalsystems.bankwallet.arcticfish.modules.order.*
 import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.core.slideFromRight
 import io.horizontalsystems.bankwallet.entities.ViewState
-import io.horizontalsystems.bankwallet.arcticfish.modules.order.OrderOverviewModule
-import io.horizontalsystems.bankwallet.arcticfish.modules.order.OrderOverviewViewModel
 import io.horizontalsystems.bankwallet.modules.coin.CoinLink
-import io.horizontalsystems.bankwallet.modules.coin.overview.ui.About
-import io.horizontalsystems.bankwallet.modules.coin.overview.ui.Categories
-import io.horizontalsystems.bankwallet.modules.coin.ui.CoinScreenTitle
 import io.horizontalsystems.bankwallet.modules.enablecoin.restoresettings.RestoreSettingsViewModel
 import io.horizontalsystems.bankwallet.modules.enablecoin.restoresettings.ZCashConfig
 import io.horizontalsystems.bankwallet.modules.managewallets.ManageWalletsModule
@@ -40,11 +32,9 @@ import io.horizontalsystems.bankwallet.modules.markdown.MarkdownFragment
 import io.horizontalsystems.bankwallet.modules.zcashconfigure.ZcashConfigure
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.HSSwipeRefresh
-import io.horizontalsystems.bankwallet.ui.compose.components.CellFooter
 import io.horizontalsystems.bankwallet.ui.compose.components.ListErrorView
 import io.horizontalsystems.bankwallet.ui.compose.components.subhead2_grey
 import io.horizontalsystems.bankwallet.ui.helpers.LinkHelper
-import io.horizontalsystems.bankwallet.ui.helpers.TextHelper
 import io.horizontalsystems.core.getNavigationResult
 import io.horizontalsystems.core.helpers.HudHelper
 import io.horizontalsystems.marketkit.models.FullCoin
@@ -108,53 +98,65 @@ fun OrderOverviewScreen(
                     }
                     ViewState.Success -> {
                         overview?.let { overview ->
-                            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                                CoinScreenTitle(
-                                    fullCoin.coin.name,
-                                    fullCoin.coin.marketCapRank,
-                                    fullCoin.coin.imageUrl,
-                                    fullCoin.iconPlaceholder
-                                )
-
-//                                if (overview.marketData.isNotEmpty()) {
-//                                    Spacer(modifier = Modifier.height(12.dp))
-//                                    MarketData(overview.marketData)
+//                            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+//                                CoinScreenTitle(
+//                                    fullCoin.coin.name,
+//                                    fullCoin.coin.marketCapRank,
+//                                    fullCoin.coin.imageUrl,
+//                                    fullCoin.iconPlaceholder
+//                                )
+//
+//                                viewModel.orderVariants?.let { orderVariants ->
+//                                    Spacer(modifier = Modifier.height(24.dp))
+//                                    OrderVariants(
+//                                        orderVariants = orderVariants,
+//                                        onClickAddToWallet = {
+//                                            manageWalletsViewModel.enable(it)
+//                                        },
+//                                        onClickCopy = {
+//                                            TextHelper.copyText(it)
+//                                            HudHelper.showSuccessMessage(view, R.string.Hud_Text_Copied)
+//                                        },
+//                                        onClickExplorer = {
+//                                            LinkHelper.openLinkInAppBrowser(context, it)
+//                                        },
+//                                    )
 //                                }
 //
-//                                if (overview.roi.isNotEmpty()) {
-//                                    Spacer(modifier = Modifier.height(12.dp))
-//                                    Roi(overview.roi)
+//                                if (overview.categories.isNotEmpty()) {
+//                                    Spacer(modifier = Modifier.height(24.dp))
+//                                    Categories(overview.categories)
 //                                }
+//
+//                                if (overview.about.isNotBlank()) {
+//                                    Spacer(modifier = Modifier.height(24.dp))
+//                                    About(overview.about)
+//                                }
+//
+//                                Spacer(modifier = Modifier.height(32.dp))
+//                                CellFooter(text = stringResource(id = R.string.Market_PoweredByApi))
+//                            }
+                            Column {
+                                OrderStatusTitle(
+                                    type = OrderType.Buy,
+                                    stage = OrderStage.NeedConfirm,
+                                    state = OrderState.Runing
+                                )
 
-                                viewModel.orderVariants?.let { orderVariants ->
-                                    Spacer(modifier = Modifier.height(24.dp))
-                                    OrderVariants(
-                                        orderVariants = orderVariants,
-                                        onClickAddToWallet = {
-                                            manageWalletsViewModel.enable(it)
-                                        },
-                                        onClickCopy = {
-                                            TextHelper.copyText(it)
-                                            HudHelper.showSuccessMessage(view, R.string.Hud_Text_Copied)
-                                        },
-                                        onClickExplorer = {
-                                            LinkHelper.openLinkInAppBrowser(context, it)
-                                        },
-                                    )
-                                }
-
-                                if (overview.categories.isNotEmpty()) {
-                                    Spacer(modifier = Modifier.height(24.dp))
-                                    Categories(overview.categories)
-                                }
-
-                                if (overview.about.isNotBlank()) {
-                                    Spacer(modifier = Modifier.height(24.dp))
-                                    About(overview.about)
-                                }
-
-                                Spacer(modifier = Modifier.height(32.dp))
-                                CellFooter(text = stringResource(id = R.string.Market_PoweredByApi))
+                                TradeOrderContent(
+                                    nick = "币圈小能手",
+                                    level = 1,
+                                    cashAmount = 1234567.00f,
+                                    coinAmount = 100000.00f,
+                                    price = 7.18f,
+                                    number = "202308091233456",
+                                    time = "2023-08-09 18:12:23",
+                                    type = OrderType.Buy,
+                                    payment = OrderPayment.Bank,
+                                    stage = OrderStage.PaidCash,
+                                    state = OrderState.Runing,
+                                    {}
+                                )
                             }
                         }
 

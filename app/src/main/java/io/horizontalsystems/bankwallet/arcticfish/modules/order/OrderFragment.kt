@@ -108,25 +108,18 @@ fun OrderDetails(
                 HsBackButton(onClick = { navController.popBackStack() })
             },
             menuItems = buildList {
-                if (viewModel.isWatchlistEnabled) {
-                    if (viewModel.isFavorite) {
-                        add(
-                            MenuItem(
-                                title = TranslatableString.ResString(R.string.CoinPage_Unfavorite),
-                                icon = R.drawable.ic_filled_star_24,
-                                tint = ComposeAppTheme.colors.jacob,
-                                onClick = { viewModel.onUnfavoriteClick() }
-                            )
+                if (viewModel.isBuyCancelEnabled) {
+                    add(
+                        MenuItem(
+                            title = TranslatableString.ResString(R.string.Order_Cancel),
+                            tint = ComposeAppTheme.colors.jacob,
+                            onClick = {
+                                // TODO: 显示取消确定框，确定之后直接back
+//                                navController.popBackStack()
+                                viewModel.onCancelClick()
+                            }
                         )
-                    } else {
-                        add(
-                            MenuItem(
-                                title = TranslatableString.ResString(R.string.CoinPage_Favorite),
-                                icon = R.drawable.ic_star_24,
-                                onClick = { viewModel.onFavoriteClick() }
-                            )
-                        )
-                    }
+                    )
                 }
             }
         )
