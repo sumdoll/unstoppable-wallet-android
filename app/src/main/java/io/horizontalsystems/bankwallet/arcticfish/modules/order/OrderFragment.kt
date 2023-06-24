@@ -103,7 +103,7 @@ fun OrderDetails(
 
     Column(modifier = Modifier.background(color = ComposeAppTheme.colors.tyler)) {
         AppBar(
-            title = TranslatableString.PlainString(viewModel.fullCoin.coin.code),
+            title = TranslatableString.ResString(R.string.Order_TitleBuy),//TranslatableString.PlainString(viewModel.fullCoin.coin.code),
             navigationIcon = {
                 HsBackButton(onClick = { navController.popBackStack() })
             },

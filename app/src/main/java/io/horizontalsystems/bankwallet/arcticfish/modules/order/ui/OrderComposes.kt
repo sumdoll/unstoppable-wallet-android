@@ -605,7 +605,7 @@ fun CopyRow(head: String, content: String, isQr: Boolean) {
         if (isQr) {
             NormalImage(
                 img = R.drawable.ic_pay_qrcode,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.size(24.dp)
             )
             HSpacer(2.dp)
             ButtonSecondaryCircle(

@@ -300,6 +300,98 @@
     <string name="Pond_Button_Go">去提交</string>
     <string name="Pond_Button_Finish">已完成</string>
 
+    <!--User Login Page-->
+    <string name="Login_Login">登录</string>
+    <string name="Login_Hint_Account">请输入账号</string>
+    <string name="Login_Hint_password">请输入密码</string>
+    <string name="Login_ForgotPassword">忘记密码</string>
+    <string name="Login_NewRegister">新用户注册</string>
+    <string name="Login_FindPassword">找回密码</string>
+    <string name="Login_Email">邮箱</string>
+    <string name="Login_GetAuthCode">获取验证码</string>
+    <string name="Login_Email_Hint">已绑定的邮箱地址</string>
+    <string name="Login_AuthCode_Hint">邮箱的验证码</string>
+    <string name="Login_NewPass_Hint">新密码</string>
+    <string name="Login_Submit">提交</string>
+    <string name="Login_Nick_Hint">用户昵称</string>
+    <string name="Login_SetPass_Hint">登录密码</string>
+    <string name="Login_PayPass_Hint">支付密码（与登录密码不同）</string>
+    <string name="Login_Register">注册</string>
+    <string name="Login_Referrer">推荐邀请码</string>
+
+    <!--Error hint message-->
+    <string name="User_HasExist">用户名已存在</string>
+    <string name="Password_NotMatch">两次输入密码不一致</string>
+    <string name="Valid_Mail">无效邮箱</string>
+    <string name="Valid_AuthCode">验证码错误</string>
+
+    <!--User Auth Page-->
+    <string name="User_GoAuth">去认证</string>
+    <string name="User_AuthDone">已认证</string>
+    <string name="User_AuthTitle">身份认证</string>
+    <string name="User_Auth_Name">姓名</string>
+    <string name="User_Auth_ID">身份证</string>
+    <string name="User_Auth_Photo">相册选择照片</string>
+    <string name="User_Auth_Upload">上传</string>
+    <string name="User_Auth_SubmitNow">立即认证</string>
+    <string name="User_Auth_Dialog">认证失败</string>
+    <string name="User_Auth_Dialog_Reason">认证资料不全，请完善资料重新提交</string>
+    <string name="User_Auth_Dialog_Button">确认</string>
+
+    <!--User Asset Page-->
+    <string name="User_Asset">资产</string>
+    <string name="User_Asset_Recharge">充币</string>
+    <string name="User_Asset_Withdraw">提币</string>
+    <string name="User_Asset_Balance">余额</string>
+    <string name="User_Asset_Freeze">冻结</string>
+    <string name="User_Asset_Transfer">转账</string>
+    <string name="User_Asset_ZeroTrade">零担交易</string>
+    <string name="User_Asset_ChargeTitle">USDT充币</string>
+    <string name="User_Asset_DrawTitle">USDT提币</string>
+    <string name="User_Asset_ChainType">选择链类型</string>
+    <string name="User_Asset_CopyAddress">复制地址</string>
+    <string name="User_Asset_ChargeNote">充币须知</string>
+    <string name="User_Asset_ChargeNote_Dec1">1.请勿向上述地址之外的任何链进行转账，否则将造成资金无法找回。</string>
+    <string name="User_Asset_ChargeNote_Dec2">2.转账期间请保证网络正常。</string>
+    <string name="User_Asset_ChargeNote_Dec3">3.系统会阶段性进行界面更新，请放心充币。</string>
+    <string name="User_Asset_ChargeNote_Dec4">4.最小充币为100USDT，小于此值无法到账。</string>
+    <string name="User_Asset_DrawTips">仅支持%s类型的USDT提币，务必确认好地址。</string>
+    <string name="User_Asset_DrawNoBalance">余额并不够，最小提币%dUSDT</string>
+    <string name="User_Asset_DrawAddress">提币地址</string>
+    <string name="User_Asset_DrawAmount">提币数量</string>
+    <string name="User_Asset_DrawFee">手续费</string>
+    <string name="User_Asset_DrawConfirm">确认提币</string>
+
+    <string name="User_Asset_History_Title">充提记录</string>
+    <string name="User_Asset_Time">时间</string>
+    <string name="User_Asset_Amount">数量</string>
+    <string name="User_Asset_Order">订单号</string>
+    <string name="User_Asset_Done">已完成</string>
+    <string name="User_Asset_Doing">进行中</string>
+    <string name="User_Asset_Cancel">已取消</string>
+    <string name="User_Asset_Type">类型</string>
+    <string name="User_Asset_Hash">Txn Hash</string>
+    <string name="User_Asset_ChainConfirm">区块已确认</string>
+    <string name="User_Asset_HasProblem">订单有疑问？</string>
+
+
+    <!--User Setting-->
+    <string name="User_Setting">设置</string>
+    <string name="User_Info">个人资料</string>
+    <string name="User_ChangePassword">修改登录密码</string>
+    <string name="User_Set_PayPassword">设置支付密码</string>
+    <string name="User_Has_Problem">对订单有疑问？</string>
+    <string name="User_Deposit">我的抵押</string>
+    <string name="User_Circle">我的圈子</string>
+    <string name="User_Payment">支付管理</string>
+    <string name="User_Password">修改密码</string>
+    <string name="User_Password_Current">当前密码</string>
+    <string name="User_Password_New">新密码</string>
+    <string name="User_Password_NewAgain">确认密码</string>
+    <string name="User_Confirm">确认</string>
+    <string name="User_AddNew">添加新的</string>
+    <string name="User_Enable">打开</string>
+
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">前列行业</string>
     <!--Market Top Platforms-->

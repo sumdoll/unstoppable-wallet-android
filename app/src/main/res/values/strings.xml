@@ -330,6 +330,99 @@
     <string name="Pond_Button_Go">Todo</string>
     <string name="Pond_Button_Finish">Done</string>
 
+
+    <!--User Login Page-->
+    <string name="Login_Login">Login</string>
+    <string name="Login_Hint_Account">Input account</string>
+    <string name="Login_Hint_password">Input password</string>
+    <string name="Login_ForgotPassword">forgot</string>
+    <string name="Login_NewRegister">register</string>
+    <string name="Login_FindPassword">take back password</string>
+    <string name="Login_Email">Email</string>
+    <string name="Login_GetAuthCode">Get the verification code</string>
+    <string name="Login_Email_Hint">bound email</string>
+    <string name="Login_AuthCode_Hint">verification code</string>
+    <string name="Login_NewPass_Hint">new password</string>
+    <string name="Login_Submit">Submit</string>
+    <string name="Login_Nick_Hint">Nickname</string>
+    <string name="Login_SetPass_Hint">Login password</string>
+    <string name="Login_PayPass_Hint">Pay password（diff login）</string>
+    <string name="Login_Register">Register</string>
+    <string name="Login_Referrer">Referral invitation code</string>
+
+    <!--Error hint message-->
+    <string name="User_HasExist">name already exists</string>
+    <string name="Password_NotMatch">The password not match</string>
+    <string name="Valid_Mail">valid email</string>
+    <string name="Valid_AuthCode">valid captcha</string>
+
+    <!--User Auth Page-->
+    <string name="User_GoAuth">ToAuth</string>
+    <string name="User_AuthDone">Authed</string>
+    <string name="User_AuthTitle">Authentication</string>
+    <string name="User_Auth_Name">Name</string>
+    <string name="User_Auth_ID">id card</string>
+    <string name="User_Auth_Photo">Select a photo</string>
+    <string name="User_Auth_Upload">upload</string>
+    <string name="User_Auth_SubmitNow">Auth now</string>
+    <string name="User_Auth_Dialog">auth failed</string>
+    <string name="User_Auth_Dialog_Reason">Failed by incomplete information</string>
+    <string name="User_Auth_Dialog_Button">confirm</string>
+
+    <!--User Asset Page-->
+    <string name="User_Asset">Assets</string>
+    <string name="User_Asset_Recharge">Recharge</string>
+    <string name="User_Asset_Withdraw">Withdraw</string>
+    <string name="User_Asset_Balance">Balance</string>
+    <string name="User_Asset_Freeze">Freeze</string>
+    <string name="User_Asset_Transfer">Transfer</string>
+    <string name="User_Asset_ZeroTrade">ZeroTrade</string>
+    <string name="User_Asset_ChargeTitle">Recharge USDT</string>
+    <string name="User_Asset_DrawTitle">Withdraw USDT</string>
+    <string name="User_Asset_ChainType">ChainType</string>
+    <string name="User_Asset_CopyAddress">Copy</string>
+    <string name="User_Asset_ChargeNote">Note</string>
+    <string name="User_Asset_ChargeNote_Dec1">1.Do not transfer funds to any chain other than the above address, otherwise the funds will not be recovered.</string>
+    <string name="User_Asset_ChargeNote_Dec2">2.Please ensure that the network is normal</string>
+    <string name="User_Asset_ChargeNote_Dec3">3.Auto update the status</string>
+    <string name="User_Asset_ChargeNote_Dec4">4.The min 100 USDT，otherwise will not be credited。</string>
+    <string name="User_Asset_DrawTips">Only USDT withdrawals of %s type are supported, be sure to confirm the address.</string>
+    <string name="User_Asset_DrawNoBalance">The balance is not enough, the minimum withdrawal is %dUSDT</string>
+    <string name="User_Asset_DrawAddress">Token address</string>
+    <string name="User_Asset_DrawAmount">Token Amount</string>
+    <string name="User_Asset_DrawFee">Fee</string>
+    <string name="User_Asset_DrawConfirm">Confirm</string>
+
+    <string name="User_Asset_History_Title">History</string>
+    <string name="User_Asset_Time">Time</string>
+    <string name="User_Asset_Amount">Amount</string>
+    <string name="User_Asset_Order">Order number</string>
+    <string name="User_Asset_Done">Done</string>
+    <string name="User_Asset_Doing">Doing</string>
+    <string name="User_Asset_Cancel">Canceled</string>
+    <string name="User_Asset_Type">Type</string>
+    <string name="User_Asset_Hash">Txn Hash</string>
+    <string name="User_Asset_ChainConfirm">Block confirmed</string>
+    <string name="User_Asset_HasProblem">Questions？</string>
+
+
+    <!--User Setting-->
+    <string name="User_Setting">Setting</string>
+    <string name="User_Info">Information</string>
+    <string name="User_ChangePassword">Change login password</string>
+    <string name="User_Set_PayPassword">Set pay password</string>
+    <string name="User_Has_Problem">Questions？</string>
+    <string name="User_Deposit">My deposit</string>
+    <string name="User_Circle">My Circle"</string>
+    <string name="User_Payment">Manage payment</string>
+    <string name="User_Password">Change Password</string>
+    <string name="User_Password_Current">Current</string>
+    <string name="User_Password_New">New</string>
+    <string name="User_Password_NewAgain">Again</string>
+    <string name="User_Confirm">Confirm</string>
+    <string name="User_AddNew">Add now</string>
+    <string name="User_Enable">Enable</string>
+
     <!--Market Overview-->
     <string name="Market_Overview_TopSectors">Top Sectors</string>
 
